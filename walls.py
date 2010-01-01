@@ -10,7 +10,8 @@ default_speeds = {'left':252,'right':255} #left/right. Left could go up a tick o
 adjust_damping = 40
 adjust_modifier = 1
 
-adjust_speed = 200
+ladjust_speed = 200
+radjust_speed = 150
 
 #Note: front delta is probably unessisary, and can be removed to save
 #cycles.
@@ -57,10 +58,10 @@ def control_loop():
     #With this,, left WILL override right. But there
     #shouldn't be a situation like this
     if dr < 45:
-        adjust(adjust_speed, default_speeds['right'])
+        adjust(l_adjust_speed, default_speeds['right'])
 
     if dl < 45:
-        adjust(default_speeds['left'], adjust_speed)
+        adjust(default_speeds['left'], r_adjust_speed)
 
     #run this new speed for half a second
 
