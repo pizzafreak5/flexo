@@ -19,64 +19,40 @@ def move_forward(left_d, right_d):
 	distance_diff = left_d - right_d
 	if abs(distance_diff) <=40:
 		print("Move forward")
-		m.move_left_forward(speed_faster)
-		m.move_right_forward(speed_faster)
-		return
-<<<<<<< HEAD
-	
-	elif distance_diff >= 40 and distance_diff >=0:		#Right side is a wall
-		print("Compensate left")
 		m.move_left_forward(speed_normal)
-		m.move_right_forward(speed_fast)
-
-	elif distance_diff <= -40 and distance_diff <=0:		#Left side is wall
-		print("Compensate right")
-=======
+		m.move_right_forward(speed_normal)
+		return
 
 	elif distance_diff <= 40 and distance_diff >=0:
 		print("Compensate left") # left is greater than right distance
-		m.move_left_forward(speed_normal)
-		m.move_right_forward(speed_fast)
+		m.move_left_forward(speed_slow)
+		m.move_right_forward(speed_normal)
 
 	elif distance_diff >= -40 and distance_diff <=0:
 		print("Compensate right") # right is greater than left distance
->>>>>>> d4e9f5def34b8c21b9b1a467f7df33614eb2e7a3
-		m.move_left_forward(speed_fast)
-		m.move_right_forward(speed_normal)
+		m.move_left_forward(speed_normal)
+		m.move_right_forward(speed_slow)
 
 
 
 def move_backward(left_d, right_d):
 	print("Move backwards")
-	m.move_left_backward(speed_fast)
-	m.move_right_backward(speed_fast)
-	time.sleep(1.500)	# Do this for half a second
+	m.move_left_backward(speed_normal)
+	m.move_right_backward(speed_normal)
+	time.sleep(1.00)	# Do this for half a second
 
 
 def turn_left(left_d, right_d):
-<<<<<<< HEAD
 	m.move_left_forward(speed_slowest)
-	m.move_right_forward(speed_faster)
-	time.sleep(1.500)	# Do this for half a second
-	return
-
-def turn_right(left_d, right_d):
-	m.move_left_forward(speed_faster)
-	m.move_right_forward(speed_slowest)
-	time.sleep(1.500)	# Do this for half a second
-	return
-
-=======
-	m.move_left_forward(speed_slow)
-	m.move_right_forward(speed_fast)
+	m.move_right_forward(speed_normal)
 	return
 
 def turn_right(left_d, right_d):
 	
-	m.move_left_forward(speed_fast)
-	m.move_right_forward(speed_slow)
+	m.move_left_forward(speed_normal)
+	m.move_right_forward(speed_slowest)
 	return
->>>>>>> d4e9f5def34b8c21b9b1a467f7df33614eb2e7a3
+
 
 def control_loop():
 
@@ -90,33 +66,20 @@ def control_loop():
 		move_forward(left_d,right_d)
 
 
-<<<<<<< HEAD
-		if(front_d <= 100):
-			move_backward(left_d, right_d)
-
-
-		if(left_d >= 200):			# Intersection to Left
-=======
 		if(front_d <= 70):
 			print("Back up")
 			move_backward(left_d, right_d)
 
 
-		if(left_d <= 50):
-			print("Turn Right")
-			turn_right(left_d, right_d)
-
-
-		if(right_d <= 50): #Unless I'm retarded, this seems like it
-                                        #doesn't turn until it crashes into the wall
->>>>>>> d4e9f5def34b8c21b9b1a467f7df33614eb2e7a3
+		if(left_d >= 200):				# Intersection to Left
 			print("Turn Left")
 			turn_left(left_d, right_d)
 
 
-		if(right_d >= 200):			# Intersection to Right
+		if(right_d >= 200): 			# Intersection to Right
 			print("Turn Right")
 			turn_right(left_d, right_d)
+
 	
 		time.sleep(0.100)	# Sleep for half a second
 		m.move_stop()
