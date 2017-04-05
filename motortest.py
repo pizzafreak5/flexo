@@ -1,5 +1,5 @@
 #Test program to drive the motors
-import gpio
+import pcduino
 #import time
 
 speed_pin_1 = 'gpio9'
