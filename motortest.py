@@ -9,7 +9,7 @@ pin_go = 'gpio8'
 
 pcduino.pin_mode(speed_pin_1, 'OUTPUT')
 pcduino.pin_mode(pin_forback, 'OUTPUT')
-pcduinp.pin_mode(pin_go, 'OUTPUT')
+pcduino.pin_mode(pin_go, 'OUTPUT')
 
 def loop():
 	while True:
