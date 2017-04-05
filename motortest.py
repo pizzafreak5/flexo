@@ -2,7 +2,7 @@
 import pcduino
 #import time
 
-speed_pin_1 = 'pwm9'
+speed_pin_1 = 'gpio9'
 pin_forback = 'gpio11'
 pin_go = 'gpio8'
 
