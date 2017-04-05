@@ -13,6 +13,8 @@ pcduino.pin_mode(pin_go, 'OUTPUT')
 
 def loop():
 	while True:
-		pcduino.analog_swrite(speed_pin_1, 200)
-		pcduino.digital_write(pin_forback, gpio.HIGH)
-		pcduino.digital_write(pin_go, gpio.HIGH)
+		pcduino.analog_write(speed_pin_1, 200)
+		pcduino.digital_write(pin_forback, pcduino.HIGH)
+		pcduino.digital_write(pin_go, pcduino.HIGH)
+
+loop()
