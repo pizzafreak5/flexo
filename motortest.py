@@ -11,7 +11,7 @@ speed_pin_1 = 'gpio9'
 pin_forback = 'gpio11'
 pin_go = 'gpio8'
 
-for pin in pcduino.pins:
+for pin in pins:
         print('\nPINS:{}'.format(str(pin)))
 
 pcduino.pin_mode(speed_pin_1, 'OUTPUT')
