@@ -2,9 +2,9 @@
 import pcduino
 #import time
 
-speed_pin_1 = 'gpio9'
-pin_forback = 'gpio11'
-pin_go = 'gpio8'
+speed_pin_1 = '9'
+pin_forback = '11'
+pin_go = '8'
 
 for pin in pcduino.pins:
         print('\nPINS:{}'.format(str(pin)))
