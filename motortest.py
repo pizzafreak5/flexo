@@ -4,6 +4,7 @@ import os.path
 from os import listdir
 #import time
 
+path = '/sys/class/misc/pwmtimer/'
 pins = listdir(os.path.join(path, 'enable'))
 
 speed_pin_1 = 'gpio9'
