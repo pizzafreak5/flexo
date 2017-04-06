@@ -1,10 +1,14 @@
 #Test program to drive the motors
 import pcduino
+import os.path
+from os import listdir
 #import time
 
-speed_pin_1 = '9'
-pin_forback = '11'
-pin_go = '8'
+pins = listdir(os.path.join(path, 'enable'))
+
+speed_pin_1 = 'gpio9'
+pin_forback = 'gpio11'
+pin_go = 'gpio8'
 
 for pin in pcduino.pins:
         print('\nPINS:{}'.format(str(pin)))
