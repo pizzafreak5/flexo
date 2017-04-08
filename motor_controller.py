@@ -35,4 +35,9 @@ def move_left_forward(speed):
 	pc.digital_write(left_forward_pin, pc.HIGH)
 	pc.digital_write(left_backward_pin, pc.LOW)
 
+def move_left_backward(speed):
+	pc.analog_write(speed_left_pin, speed)
+	pc.digital_write(left_forward_pin, pc.LOW)
+	pc.digital_write(left_backward_pin, pc.HIGH)
+
 
