@@ -42,7 +42,7 @@ def pin_mode(channel, mode):
     ending = 'pwm' + str(channel)
     if os.path.isfile(os.path.join(pwmPath ,ending)):
         with open(os.path.join(pwmPath, ending), 'w+') as f:
-            f.write('0')
+            f.write('0\n')
 
     path = gpio_mode_pins.get_path(channel)
     with open(path, 'w+') as f:
