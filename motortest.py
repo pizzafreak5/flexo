@@ -19,6 +19,7 @@ def testing():
 	)
 	print (pcduino.gpio_mode_pins)
 
+testing()
 	
 for pin in pins:
        print('\nPINS:{}'.format(str(pin)))
