@@ -35,7 +35,7 @@ def analog_write(pin, value):
         f.write("%d\n" % map_level)
 
     f = open(os.path.join(path, 'enable', ending), 'w+')
-    f.write("1\n")
+    f.write("1")
     try:
         f.flush()
     except (IOError):
