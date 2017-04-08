@@ -1,6 +1,7 @@
 import os.path
 import os
 from os import listdir
+from subprocess import call
 
 MAX_PWM_LEVEL = 255
 
@@ -36,6 +37,7 @@ def analog_write(pin, value):
         f.write("%d\n" % map_level)
 
     path = os.path.join(path, 'enable', ending)
-    os.system('echo 1 > ' + path)
+    call_this = 'echo 1 > ' + path
+    call(call_this)
     #with open(os.path.join(path, 'enable', ending), 'w+') as f:
     #    f.write("1\n")
