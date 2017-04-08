@@ -9,7 +9,7 @@ path = '/sys/class/misc/pwmtimer/'
 pins = listdir(os.path.join(path, 'enable'))
 
 speed_pin_1 = 9
-pin_forback = 'gpio11'
+pin_forback = 11
 pin_go = 'gpio8'
 
 for pin in pins:
