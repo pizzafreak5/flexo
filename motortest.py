@@ -24,5 +24,6 @@ def loop():
 		pcduino.analog_write(speed_pin_1, 200)
 		pcduino.digital_write(pin_forback, pcduino.HIGH)
 		pcduino.digital_write(pin_go, pcduino.HIGH)
+		print ("looped")
 
 loop()
