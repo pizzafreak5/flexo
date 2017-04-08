@@ -28,6 +28,7 @@ def analog_write(pin, value):
    	#-1 because if it puts max_value the duty cycle somehow becomes 0 (overflow)
 
     #disable -> change level -> enable , as requested by documentation
+    '''
     with open(os.path.join(path, 'enable', ending), 'w+') as f:
         f.write("0\n")
 
@@ -36,3 +37,12 @@ def analog_write(pin, value):
 
     with open(os.path.join(path, 'enable', ending), 'w+') as f:
         f.write("1\n")
+    #'''
+    file = open(os.path.join(path, 'enable', ending), 'w+')
+    file.write("0\n")
+    file2 = open(os.path.join(path, 'level', ending), 'w+')
+    file2.write("%d\n" % map_level)
+    file.seek(0)
+    file.write("1\n")
+    file2.close()
+    file.close()
