@@ -3,7 +3,7 @@ import pcduino
 from pcduino.pinmap import PinMap
 import os.path
 from os import listdir
-#import time
+import time
 
 path = '/sys/class/misc/pwmtimer/'
 pins = listdir(os.path.join(path, 'enable'))
@@ -24,6 +24,7 @@ def loop():
 		pcduino.analog_write(speed_pin_1, 200)
 		pcduino.digital_write(pin_forback, pcduino.HIGH)
 		pcduino.digital_write(pin_go, pcduino.LOW)
+		time.sleep(60)
 		print ("looped")
 
 loop()
