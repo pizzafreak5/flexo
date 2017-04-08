@@ -30,9 +30,9 @@ def analog_write(pin, value):
     #disable -> change level -> enable , as requested by documentation
     with open(os.path.join(path, 'enable', ending), 'w+') as f:
         f.write("0\n")
-		
+
     with open(os.path.join(path, 'level', ending), 'w+') as f:
         f.write("%d\n" % map_level)
 
-	with open(os.path.join(path, 'enable', ending), 'w+') as f:
+    with open(os.path.join(path, 'enable', ending), 'w+') as f:
         f.write('1\n')
