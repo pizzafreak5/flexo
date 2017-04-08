@@ -1,5 +1,6 @@
 #Test program to drive the motors
 import pcduino
+from pcduino.pinmap import PinMap
 import os.path
 from os import listdir
 #import time
