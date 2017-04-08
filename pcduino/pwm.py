@@ -43,4 +43,5 @@ def analog_write(pin, value):
 	print (path1, path2, path3)
 	
 	with open(os.path.join(path, 'enable', ending), 'w+') as f:
-		f.write("1 \n")
+		f.write("1")
+        f.write("\n")
