@@ -10,7 +10,7 @@ pins = listdir(os.path.join(path, 'enable'))
 
 speed_pin_1 = 9
 pin_forback = 11
-pin_go = 'gpio8'
+pin_go = 8
 
 for pin in pins:
        print('\nPINS:{}'.format(str(pin)))
