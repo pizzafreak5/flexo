@@ -41,8 +41,8 @@ def analog_write(pin, value):
     try:
         val = f.close()
     except (IOError):
-	    print(val)
-	print(val)
+        print(val)
+    print(val)
 	#'''
     #with open(os.path.join(path, 'enable', ending), 'w+') as f:
     #    f.write("1\n")
