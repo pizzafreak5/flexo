@@ -38,8 +38,11 @@ def analog_write(pin, value):
     val = f.write("1\n")
     print (val)
 
-    val = f.close()
-    print(val)
+    try:
+        val = f.close()
+    except (IOError):
+	    print(val)
+	print(val)
 	#'''
     #with open(os.path.join(path, 'enable', ending), 'w+') as f:
     #    f.write("1\n")
