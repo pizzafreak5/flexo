@@ -18,7 +18,7 @@ def testing():
     'gpio',
     20
 	)
-	print (pcduino.gpio_mode_pins)
+	print (gpio_pins)
 
 testing()
 	
