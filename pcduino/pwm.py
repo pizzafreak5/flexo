@@ -35,7 +35,7 @@ def analog_write(pin, value):
         f.write("%d\n" % map_level)
 
     f = open(os.path.join(path, 'enable', ending), 'w+')
-	f.write("1\n")
-	f.close()
+    f.write("1\n")
+    f.close()
     #with open(os.path.join(path, 'enable', ending), 'w+') as f:
     #    f.write("1\n")
