@@ -18,7 +18,7 @@ def testing():
     'gpio',
     20
 	)
-	print (gpio_pins)
+	print (gpio_pins.pins)
 
 testing()
 	
