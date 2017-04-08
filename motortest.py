@@ -8,20 +8,10 @@ from os import listdir
 path = '/sys/class/misc/pwmtimer/'
 pins = listdir(os.path.join(path, 'enable'))
 
-speed_pin_1 = 'gpio8'
+speed_pin_1 = 'pwm9'
 pin_forback = 'gpio11'
 pin_go = 'gpio8'
 
-def testing():
-	gpio_pins = PinMap(
-    '/sys/devices/virtual/misc/gpio/pin',
-    'gpio',
-    20
-	)
-	print(PinMap.get_path(gpio_pins.pins))
-
-testing()
-	
 for pin in pins:
        print('\nPINS:{}'.format(str(pin)))
 
