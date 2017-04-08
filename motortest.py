@@ -18,7 +18,7 @@ def testing():
     'gpio',
     20
 	)
-	print (gpio_pins.pins)
+	print(PinMap.get_path(gpio_pins.pins))
 
 testing()
 	
