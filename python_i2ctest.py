@@ -1,10 +1,10 @@
 import smbus
+from vl6180x import VL6180X
 
-bus = smbus.SMBus(2)
+sensor = VL6180X(debug = True)
 
-for x in range(0, 50000):
-	data1 = bus.read_byte_data(0x29, 0)
-	data2 = bus.read_byte_data(0x29, 1)
-	data3 = bus.read_byte_data(0x29, 2)
-	data4 = bus.read_byte_data(0x29, 3)
-	print('{}:{}:{}:{}'.format(data1,data2,data3,data4))
+sensor.default_settings()
+
+for x in range (0, 10000):
+	data = sensor.get_ambient_light(20)
+	print(data)

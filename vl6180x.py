@@ -117,7 +117,7 @@ class VL6180X:
         # change the SMBus number in the initializer below!
 
         # setup i2c bus and SFR address
-        self.i2c = smbus.SMBus(1)
+        self.i2c = smbus.SMBus(2)
         self.address = address
         self.debug = debug
 
