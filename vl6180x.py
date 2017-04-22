@@ -313,7 +313,7 @@ class VL6180X:
         time.sleep(0.010)
         if self.debug:
             print "Range status: %x" % \
-                  self.get_register(self.__VL6180X_RESULT_RANGE_STATUS) & 0xF1
+                  (self.get_register(self.__VL6180X_RESULT_RANGE_STATUS) & 0xF1)
         distance = self.get_register(self.__VL6180X_RESULT_RANGE_VAL)
         self.set_register(self.__VL6180X_SYSTEM_INTERRUPT_CLEAR, 0x07)
         return distance
