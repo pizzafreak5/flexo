@@ -342,8 +342,8 @@ class VL6180X:
 
         # Retrieve the Raw ALS value from the sensor
         if self.debug:
-            print "ALS status: %x" % \
-                  self.get_register(self.__VL6180X_RESULT_ALS_STATUS) & 0xF1
+            print ("ALS status: {}".format(self.get_register(self.__VL6180X_RESULT_ALS_STATUS) & 0xF1))
+
         als_raw = self.get_register_16bit(self.__VL6180X_RESULT_ALS_VAL)
         self.set_register(self.__VL6180X_SYSTEM_INTERRUPT_CLEAR, 0x07)
 
