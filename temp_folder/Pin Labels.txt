@@ -1,0 +1,17 @@
+Pin Label	Pin Function			Notes
+SCL			I2C serial clock
+			SPI serial port clock	100 or 400 kHz I2C
+									Up to 1 MHz SPI (20 MHz in certain cases)
+SDA			I2C serial data			Can also be used for SPI serial data input (SDI)
+VDD			Power supply			+2.4V to +3.6V
+GND			Ground reference		+0V
+AUXDA		Ground reference		I2C master serial data, for connecting to external sensors
+FSYNC		Ground reference		Frame synchronization digital input. Connect to GND if unused.
+AUXCL		Ground reference		I2C Master serial clock, for connecting to external sensors
+INT			Interrupt signal		Interrupt digital output (totem pole or open-drain)
+CS			Chip select				Chip select (SPI mode only)
+AD0/SDO		Address selection		I2C Slave Address LSB (AD0):
+   										Low: 0b1101000 ➫ 0x68
+   										High: 0b1101001 ➫ 0x69
+									SPI serial data output (SDO)
+VDDIO		Power supply for I/O pins	+1.71V up to VDD
