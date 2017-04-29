@@ -54,18 +54,20 @@ def initialize():
 
         sensor_2 = VL6180X()
 
-        sensor_2.change_address(0x29, laser_2_addr)
+        check = sensor_2.change_address(0x29, laser_2_addr)
+
+        if check != 0x29:
+                print('Address Changed Sucessfully for Sensor 1')
 
         #Turn on Sensor 3
         pc.digital_write(shutdown_pin_3, pc.HIGH)
 
         sensor_3 = VL6180X()
 
-        sensor_3.change_address(0x29, laser_3_addr)
-
+        check = sensor_3.change_address(0x29, laser_3_addr)
 
         if check != 0x29:
-                print('Address Changed Sucessfully for Sensor 1')
+                print('Address Changed Sucessfully for Sensor 3')
 
         return (sensor_1, sensor_2, sensor_3)
 
