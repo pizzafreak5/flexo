@@ -48,70 +48,32 @@ def initialize():
         #Turn on Sensor 3, which cannot be shut down
         flag = True
 
-        while(flag):
-                try :
-                        sensor_3 = VL6180X()
-                        flag = False
-                except:
-
-                        flag = True
+        sensor_3 = VL6180X()
 
         check = sensor_3.change_address(0x29, laser_3_addr)
 
         if check != 0x29:
                 print('Address Changed Sucessfully for Sensor 3')
 
-        pews()
-
-        raw_input('Continue?')
-
         #Turn on Sensor 2
         pc.digital_write(shutdown_pin_2, pc.HIGH)
 
-        pews()
 
-        raw_input('Continue?')
-
-        flag = True
-
-        while(flag):
-                try :
-                        sensor_2 = VL6180X()
-                        flag = False
-                except:
-
-                        flag = True
+        sensor_2 = VL6180X()
 
         check = sensor_2.change_address(0x29, laser_2_addr)
 
         if check != 0x29:
                 print('Address Changed Sucessfully for Sensor 2')
 
-        pews()
-
-        raw_input('Continue?')
+        
 
         #Turn on Sensor 1
         pc.digital_write(shutdown_pin_1, pc.HIGH)
 
-        pews()
-
-        raw_input('Continue?')
-
-        flag = True
-
-        while(flag):
-                try :
-                        sensor_1 = VL6180X()
-                        flag = False
-                except:
-                        flag = True
+        sensor_1 = VL6180X()
 
         check = sensor_1.change_address(0x29, laser_1_addr)
-
-        pews()
-
-        raw_input('Continue?')
 
         if check != 0x29:
                 print('Address Changed Sucessfully for Sensor 1')
