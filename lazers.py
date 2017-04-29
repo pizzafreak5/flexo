@@ -40,7 +40,7 @@ def initialize():
 
         pews()
 
-        input('Continue?')
+        raw_input('Continue?')
 
 
         #in order, turn on each sensor, and assign it a new address
@@ -55,14 +55,14 @@ def initialize():
 
         pews()
 
-        input('Continue?')
+        raw_input('Continue?')
 
         #Turn on Sensor 2
         pc.digital_write(shutdown_pin_2, pc.HIGH)
 
         pews()
 
-        input('Continue?')
+        raw_input('Continue?')
 
         sensor_2 = VL6180X()
 
@@ -73,14 +73,14 @@ def initialize():
 
         pews()
 
-        input('Continue?')
+        raw_input('Continue?')
 
         #Turn on Sensor 1
         pc.digital_write(shutdown_pin_1, pc.HIGH)
 
         pews()
 
-        input('Continue?')
+        raw_input('Continue?')
 
         sensor_1 = VL6180X()
 
@@ -88,7 +88,7 @@ def initialize():
 
         pews()
 
-        input('Continue?')
+        raw_input('Continue?')
 
         if check != 0x29:
                 print('Address Changed Sucessfully for Sensor 1')
