@@ -27,7 +27,7 @@ def initialize():
         #pc.pin_mode(shutdown_pin_3, 'OUTPUT')
 
         #Shutdown and restart the lazers to assign new addresses                                                                                                                                                     
-        pc.digital_write(shutdown_pin_1, pc.LOW)
+        #pc.digital_write(shutdown_pin_1, pc.LOW)
         pc.digital_write(shutdown_pin_2, pc.LOW)
         #pc.digital_write(shutdown_pin_3, pc.LOW)
 
