@@ -91,14 +91,14 @@ def shutdown_test():
         
         
         pc.digital_write(shutdown_pin_3, pc.HIGH)
-        for i in range (0, 500):
+        for i in range (0, 25):
                 data = sensor.get_distance()
                 print(data)
 
         print('LASER OFF')
         pc.digital_write(shutdown_pin_3, pc.LOW)
 
-        for i in range (0, 500):
+        for i in range (0, 25):
                 data = sensor.get_distance()
                 print(data)
 
