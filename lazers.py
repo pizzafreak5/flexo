@@ -21,7 +21,7 @@ laser_1_addr = 0x02
 laser_2_addr = 0x04
 laser_3_addr = 0x06
 
-def initilize():
+def initialize():
         pc.pin_mode(shutdown_pin_1, 'OUTPUT')
         pc.pin_mode(shutdown_pin_2, 'OUTPUT')
         #pc.pin_mode(shutdown_pin_3, 'OUTPUT')
