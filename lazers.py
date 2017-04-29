@@ -21,6 +21,9 @@ laser_1_addr = 0x02
 laser_2_addr = 0x04
 laser_3_addr = 0x06
 
+sensor = VL6180X()
+sensor.change_address(0x29, 0x10)
+
 def ch_addr_test():
         sensor = VL6180X()
         sensor.change_address(0x29, 0x10)
