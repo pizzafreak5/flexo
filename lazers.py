@@ -22,8 +22,8 @@ laser_1_addr = 0x12
 laser_2_addr = 0x14
 laser_3_addr = 0x16
 
-# Depricated code to be deleted
-def ch_addr_test():
+
+def ch_addr_test():			# Depricated function to be deleted
         sensor = VL6180X()
         sensor.change_address(0x29, 0x10)
 
