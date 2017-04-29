@@ -1,6 +1,7 @@
 import smbus
 import pcduino as pc
 from vl6180x import VL6180X
+from subprocess import call
 
 #sensor = VL6180X(debug = False)
 
@@ -57,7 +58,7 @@ def initialize():
         check = sensor_2.change_address(0x29, laser_2_addr)
 
         if check != 0x29:
-                print('Address Changed Sucessfully for Sensor 1')
+                print('Address Changed Sucessfully for Sensor 2')
 
         #Turn on Sensor 3
         pc.digital_write(shutdown_pin_3, pc.HIGH)
@@ -116,3 +117,7 @@ def test_multiple_lazers():
                 data3 = sensor_3.get_distance()
 
                 print('{}:{}:{}'.format(data1,data2,data3))
+
+def pews():
+        call(['i2cdetect', '-y', '2'])
+        
