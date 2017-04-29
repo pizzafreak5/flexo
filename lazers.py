@@ -46,7 +46,16 @@ def initialize():
         #in order, turn on each sensor, and assign it a new address
 
         #Turn on Sensor 3, which cannot be shut down
-        sensor_3 = VL6180X()
+        flag = True
+
+        while(flag):
+                try :
+                        sensor_3 = VL6180X()
+                        flag = False
+                except:
+
+                        check = sensor_3.change_address(0x29, laser_1_addr)
+                        flag = True
 
         check = sensor_3.change_address(0x29, laser_3_addr)
 
@@ -64,7 +73,16 @@ def initialize():
 
         raw_input('Continue?')
 
-        sensor_2 = VL6180X()
+        flag = True
+
+        while(flag):
+                try :
+                        sensor_2 = VL6180X()
+                        flag = False
+                except:
+
+                        check = sensor_2.change_address(0x29, laser_1_addr)
+                        flag = True
 
         check = sensor_2.change_address(0x29, laser_2_addr)
 
@@ -82,9 +100,16 @@ def initialize():
 
         raw_input('Continue?')
 
-        sensor_1 = VL6180X()
+        flag = True
 
-        check = sensor_1.change_address(0x29, laser_1_addr)
+        while(flag):
+                try :
+                        sensor_1 = VL6180X()
+                        flag = False
+                except:
+
+                        check = sensor_1.change_address(0x29, laser_1_addr)
+                        flag = True
 
         pews()
 
