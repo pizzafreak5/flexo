@@ -16,7 +16,7 @@ from subprocess import call
 
 shutdown_pin_1 = 1
 shutdown_pin_2 = 2
-shutdown_pin_3 = 4
+#shutdown_pin_3 = 4
 
 #Addresses
 laser_1_addr = 0x12
@@ -31,24 +31,23 @@ def ch_addr_test():			# Depricated function to be deleted
 def initialize():
         pc.pin_mode(shutdown_pin_1, 'OUTPUT')
         pc.pin_mode(shutdown_pin_2, 'OUTPUT')
-        pc.pin_mode(shutdown_pin_3, 'OUTPUT')
+        #pc.pin_mode(shutdown_pin_3, 'OUTPUT')
 
         #Shutdown and restart the lazers to assign new addresses                                                                                                                                                     
         pc.digital_write(shutdown_pin_1, pc.LOW)
         pc.digital_write(shutdown_pin_2, pc.LOW)
-        pc.digital_write(shutdown_pin_3, pc.LOW)
+        #pc.digital_write(shutdown_pin_3, pc.LOW)
 
 
         #in order, turn on each sensor, and assign it a new address
 
-        #Turn on Sensor 1
-        pc.digital_write(shutdown_pin_1, pc.HIGH)
-        sensor_1 = VL6180X()
+        #Turn on Sensor 3, which cannot be shut down
+        sensor_3 = VL6180X()
 
-        check = sensor_1.change_address(0x29, laser_1_addr)
+        check = sensor_3.change_address(0x29, laser_3_addr)
 
         if check != 0x29:
-                print('Address Changed Sucessfully for Sensor 1')
+                print('Address Changed Sucessfully for Sensor 3')
 
         #Turn on Sensor 2
         pc.digital_write(shutdown_pin_2, pc.HIGH)
@@ -60,15 +59,15 @@ def initialize():
         if check != 0x29:
                 print('Address Changed Sucessfully for Sensor 2')
 
-        #Turn on Sensor 3
-        pc.digital_write(shutdown_pin_3, pc.HIGH)
+        #Turn on Sensor 1
+        pc.digital_write(shutdown_pin_1, pc.HIGH)
 
-        sensor_3 = VL6180X()
+        sensor_1 = VL6180X()
 
-        check = sensor_3.change_address(0x29, laser_3_addr)
+        check = sensor_1.change_address(0x29, laser_1_addr)
 
         if check != 0x29:
-                print('Address Changed Sucessfully for Sensor 3')
+                print('Address Changed Sucessfully for Sensor 1')
 
         return (sensor_1, sensor_2, sensor_3)
 
