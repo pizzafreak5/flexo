@@ -76,11 +76,20 @@ def initialize():
         
 
 def shutdown_test():
+        
+        pc.pin_mode(shutdown_pin_1, 'OUTPUT')
+        pc.pin_mode(shutdown_pin_2, 'OUTPUT')
+        pc.pin_mode(shutdown_pin_3, 'OUTPUT')
+
+        pc.digital_write(shutdown_pin_1, pc.LOW)
+        pc.digital_write(shutdown_pin_2, pc.LOW)
+        
+        sensor = VL6180X()
 
         print('Shutdown Test')
         print ('LASER ON')
-
-        pc.pin_mode(shutdown_pin_3, 'OUTPUT')
+        
+        
         pc.digital_write(shutdown_pin_3, pc.HIGH)
         for i in range (0, 500):
                 data = sensor.get_distance()
