@@ -38,6 +38,10 @@ def initialize():
         pc.digital_write(shutdown_pin_2, pc.LOW)
         #pc.digital_write(shutdown_pin_3, pc.LOW)
 
+        pews()
+
+        input('Continue?')
+
 
         #in order, turn on each sensor, and assign it a new address
 
@@ -49,8 +53,16 @@ def initialize():
         if check != 0x29:
                 print('Address Changed Sucessfully for Sensor 3')
 
+        pews()
+
+        input('Continue?')
+
         #Turn on Sensor 2
         pc.digital_write(shutdown_pin_2, pc.HIGH)
+
+        pews()
+
+        input('Continue?')
 
         sensor_2 = VL6180X()
 
@@ -59,12 +71,24 @@ def initialize():
         if check != 0x29:
                 print('Address Changed Sucessfully for Sensor 2')
 
+        pews()
+
+        input('Continue?')
+
         #Turn on Sensor 1
         pc.digital_write(shutdown_pin_1, pc.HIGH)
+
+        pews()
+
+        input('Continue?')
 
         sensor_1 = VL6180X()
 
         check = sensor_1.change_address(0x29, laser_1_addr)
+
+        pews()
+
+        input('Continue?')
 
         if check != 0x29:
                 print('Address Changed Sucessfully for Sensor 1')
