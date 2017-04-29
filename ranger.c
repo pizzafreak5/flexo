@@ -1,4 +1,4 @@
-#include <core.h>
+#include <pcduino/Arduino.h>
 #include <stdio.h>
  
  const int TriPin = 2;
@@ -22,16 +22,8 @@ void loop()
 	cm = pulseIn (EchoPin, HIGH, 100000) / 58.0;
 	cm = (int (cm * 100.0)) / 100.0;
  
-	printf("%f", cm)
+	printf("\nFucker spotted at %f", cm);
  
 	delay (1000);
  }
  
- int main()
- {
-	 int i = 0;
-	 for (i = 0; i < 50, i++)
-	 {
-		 loop()
-	 }
- }
