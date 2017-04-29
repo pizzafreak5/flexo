@@ -305,8 +305,9 @@ class VL6180X:
             return old_address
 
         
-        self.address = new_address
+        
         self.set_register(self.__VL6180X_I2C_SLAVE_DEVICE_ADDRESS, new_address)
+        self.address = new_address
         return self.get_register(self.__VL6180X_I2C_SLAVE_DEVICE_ADDRESS)
 
     def get_distance(self):
