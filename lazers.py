@@ -17,9 +17,9 @@ shutdown_pin_1 = 1
 shutdown_pin_2 = 2
 
 #Addresses
-laser_1_addr = 0x02
-laser_2_addr = 0x04
-laser_3_addr = 0x06
+laser_1_addr = 0x12
+laser_2_addr = 0x14
+laser_3_addr = 0x16
 
 sensor = VL6180X()
 sensor.change_address(0x29, 0x10)
