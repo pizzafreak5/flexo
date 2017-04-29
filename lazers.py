@@ -80,14 +80,14 @@ def shutdown_test():
         print('Shutdown Test')
         print ('LASER ON')
 
-        pc.pin_mode(shutdown_pin_1, 'OUTPUT')
-        pc.digital_write(shutdown_pin_1, pc.HIGH)
+        pc.pin_mode(shutdown_pin_3, 'OUTPUT')
+        pc.digital_write(shutdown_pin_3, pc.HIGH)
         for i in range (0, 500):
                 data = sensor.get_distance()
                 print(data)
 
         print('LASER OFF')
-        pc.digital_write(shutdown_pin_1, pc.LOW)
+        pc.digital_write(shutdown_pin_3, pc.LOW)
 
         for i in range (0, 500):
                 data = sensor.get_distance()
