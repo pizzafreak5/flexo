@@ -15,7 +15,7 @@ from vl6180x import VL6180X
 
 shutdown_pin_1 = 1
 shutdown_pin_2 = 2
-shutdown_pin_3 = 3
+shutdown_pin_3 = 4
 
 #Addresses
 laser_1_addr = 0x12
