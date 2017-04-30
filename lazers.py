@@ -126,6 +126,8 @@ def initialize():
 def good_pew():
         
         pc.pin_mode(shutdown_pin_1, 'OUTPUT')
+        pc.digital_write(shutdown_pin_1, pc.HIGH)
+        
 
         try:
                 sensor = VL6180X()
