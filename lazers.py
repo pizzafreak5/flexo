@@ -14,7 +14,7 @@ from subprocess import call
 
 #setup multiple lasers
 
-shutdown_pin_1 = 1
+shutdown_pin_1 = 2
 shutdown_pin_2 = 2
 #shutdown_pin_3 = 4
 
@@ -158,7 +158,7 @@ def good_pew():
         print('LASER OFF')
 
         try:
-                pc.digital_write(shutdown_pin_3, pc.LOW)
+                pc.digital_write(shutdown_pin_1, pc.LOW)
         except Exception as e:
                 print('Could not turn off pin')
                 print(e)
@@ -175,7 +175,7 @@ def good_pew():
         print('LAZER ON')
 
         try:
-                pc.digital_write(shutdown_pin_3, pc.HIGH)
+                pc.digital_write(shutdown_pin_1, pc.HIGH)
         except Exception as e:
                 print('Couldnt Turn lazer back on....')
                 print(e)
