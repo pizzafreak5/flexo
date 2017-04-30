@@ -48,32 +48,70 @@ def initialize():
         #Turn on Sensor 3, which cannot be shut down
         flag = True
 
-        sensor_3 = VL6180X()
+        while(flag):
+                try :
+                        sensor_3 = VL6180X()
+                        flag = False
+                except:
+
+                        flag = True
 
         check = sensor_3.change_address(0x29, laser_3_addr)
 
         if check != 0x29:
                 print('Address Changed Sucessfully for Sensor 3')
 
+        pews()
+
+        raw_input('Continue?')
+
         #Turn on Sensor 2
         pc.digital_write(shutdown_pin_2, pc.HIGH)
 
+        pews()
 
-        sensor_2 = VL6180X()
+        raw_input('Continue?')
+
+        flag = True
+
+        while(flag):
+                try :
+                        sensor_2 = VL6180X()
+                        flag = False
+                except:
+
+                        flag = True
 
         check = sensor_2.change_address(0x29, laser_2_addr)
 
         if check != 0x29:
                 print('Address Changed Sucessfully for Sensor 2')
 
-        
+        pews()
+
+        raw_input('Continue?')
 
         #Turn on Sensor 1
         pc.digital_write(shutdown_pin_1, pc.HIGH)
 
-        sensor_1 = VL6180X()
+        pews()
+
+        raw_input('Continue?')
+
+        flag = True
+
+        while(flag):
+                try :
+                        sensor_1 = VL6180X()
+                        flag = False
+                except:
+                        flag = True
 
         check = sensor_1.change_address(0x29, laser_1_addr)
+
+        pews()
+
+        raw_input('Continue?')
 
         if check != 0x29:
                 print('Address Changed Sucessfully for Sensor 1')
@@ -84,33 +122,74 @@ def initialize():
         
         
 
-def shutdown_test():
+#Test a single laser for range and shutdown functionality
+def good_pew():
         
         pc.pin_mode(shutdown_pin_1, 'OUTPUT')
-        pc.pin_mode(shutdown_pin_2, 'OUTPUT')
-        pc.pin_mode(shutdown_pin_3, 'OUTPUT')
 
-        pc.digital_write(shutdown_pin_1, pc.LOW)
-        pc.digital_write(shutdown_pin_2, pc.LOW)
-        
-        sensor = VL6180X()
+        try:
+                sensor = VL6180X()
+        except Exception as e:
+                print('That wasnt supposed to happen...')
+                print(e)
+                exit()
+
+        print ('Laser Data Test')
+
+        try:
+                data = sensor.get_distance()
+        except Exception as e:
+                print('That wasnt supposed to happen...')
+                print(e)
+                exit()
 
         print('Shutdown Test')
         print ('LASER ON')
         
-        
-        pc.digital_write(shutdown_pin_3, pc.HIGH)
-        for i in range (0, 25):
-                data = sensor.get_distance()
-                print(data)
+        try:
+                for i in range (0, 10):
+                        data = sensor.get_distance()
+                        print(data)
 
+        except Exception as e:
+                print('Couldnt range. Odd')
+                print(e)
+                
         print('LASER OFF')
-        pc.digital_write(shutdown_pin_3, pc.LOW)
 
-        for i in range (0, 25):
-                data = sensor.get_distance()
-                print(data)
+        try:
+                pc.digital_write(shutdown_pin_3, pc.LOW)
+        except Exception as e:
+                print('Could not turn off pin')
+                print(e)
+        
+        try:
+                
+                for i in range (0, 10):
+                        data = sensor.get_distance()
+                        print(data)
+        except Exception as e:
+                print('Expected error, device should be off')
+                print(e)
 
+        print('LAZER ON')
+
+        try:
+                pc.digital_write(shutdown_pin_3, pc.HIGH)
+        except Exception as e:
+                print('Couldnt Turn lazer back on....')
+                print(e)
+
+        try:
+                for i in range (0, 10):
+                        data = sensor.get_distance()
+                        print(data)
+
+        except Exception as e:
+                print('Couldnt range. Odd')
+                print(e)
+
+        
 
 def test_multiple_lazers():
 
