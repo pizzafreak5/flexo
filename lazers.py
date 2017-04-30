@@ -2,6 +2,7 @@ import smbus
 import pcduino as pc
 from vl6180x import VL6180X
 from subprocess import call
+from time import sleep
 
 #sensor = VL6180X(debug = False)
 
@@ -136,6 +137,8 @@ def good_pew():
                 print(e)
                 exit()
 
+        sleep(10)
+
         print ('Laser Data Test')
 
         try:
@@ -145,6 +148,7 @@ def good_pew():
                 print(e)
                 exit()
 
+        sleep(10)
         print('Shutdown Test')
         print ('LASER ON')
         
@@ -156,6 +160,8 @@ def good_pew():
         except Exception as e:
                 print('Couldnt range. Odd')
                 print(e)
+
+        sleep(10)
                 
         print('LASER OFF')
 
@@ -174,6 +180,8 @@ def good_pew():
                 print('Expected error, device should be off')
                 print(e)
 
+        sleep(10)
+
         print('LAZER ON')
 
         try:
@@ -181,6 +189,8 @@ def good_pew():
         except Exception as e:
                 print('Couldnt Turn lazer back on....')
                 print(e)
+
+        sleep(10)
 
         try:
                 for i in range (0, 10):
@@ -191,7 +201,7 @@ def good_pew():
                 print('Couldnt range. Odd')
                 print(e)
 
-        
+                
 
 def test_multiple_lazers():
 
