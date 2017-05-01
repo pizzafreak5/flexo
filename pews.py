@@ -15,7 +15,7 @@ def safe_pinmode(pin, mode):
     except Exception as e:
         print("Can't set pinmode.")
         print(e)
-        q = input('Continue [y/n]?')
+        q = raw_input('Continue [y/n]?')
 
         if q != 'y' or q != 'Y':
             exit()
@@ -26,7 +26,7 @@ def safe_pindown(pin):
     except Exception as e:
         print("Can't set pin {} to low.".format(pin))
         print(e)
-        q = input('Continue [y/n]?')
+        q = raw_input('Continue [y/n]?')
 
         if q != 'y' or q != 'Y':
             exit()
@@ -38,7 +38,7 @@ def safe_pinup(pin):
     except Exception as e:
         print("Can't set pin {} to low.".format(pin))
         print(e)
-        q = input('Continue [y/n]?')
+        q = raw_input('Continue [y/n]?')
 
         if q != 'y' or q != 'Y':
             exit()
@@ -53,7 +53,7 @@ def reset_addr(sensor, address):
     except Exception as e:
         print("Couldn't change address of sensor at {}".format(address))
         print(e)
-        q = input('Continue [y/n]?')
+        q = raw_input('Continue [y/n]?')
 
         if q != 'y' or q != 'Y':
             exit()
@@ -93,12 +93,12 @@ print('Sensor 1 Startup')
 safe_pinup(shtdn1)
 sleep(sleep_time)
 try:
-    pew1 = V6180X()
+    pew1 = VL6180X()
     sensor_good[0] = True
 except Exception as e:
     print('Failed sensor 1 Startup')
     print(e)
-    q = input('Continue [y/n]?')
+    q = raw_input('Continue [y/n]?')
 
     if q != 'y' or q != 'Y':
         exit()
@@ -109,12 +109,12 @@ pews()
 safe_pinup(shtdn2)
 sleep(sleep_time)
 try:
-    pew2 = V6180X()
+    pew2 = VL6180X()
     sensor_good[1] = True
 except Exception as e:
     print('Failed sensor 1 Startup')
     print(e)
-    q = input('Continue [y/n]?')
+    q = raw_input('Continue [y/n]?')
 
     if q != 'y' or q != 'Y':
         exit()
@@ -125,12 +125,12 @@ pews()
 safe_pinup(shtdn3)
 sleep(sleep_time)
 try:
-    pew3 = V6180X()
+    pew3 = VL6180X()
     sensor_good[3] = True
 except Exception as e:
     print('Failed sensor 1 Startup')
     print(e)
-    q = input('Continue [y/n]?')
+    q = raw_input('Continue [y/n]?')
 
     if q != 'y' or q != 'Y':
         exit()
