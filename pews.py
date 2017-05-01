@@ -118,7 +118,7 @@ except Exception as e:
         exit()
 
 sleep(sleep_time)
-safe_ch_addr(pew1, lzr1_addr)
+safe_ch_addr(pew1, lzr1_addr, default_addr)
 sleep(sleep_time)
 
 pews()
@@ -139,7 +139,7 @@ except Exception as e:
         exit()
 
 sleep(sleep_time)
-safe_ch_addr(pew2, lzr2_addr)
+safe_ch_addr(pew2, lzr2_addr, default_addr)
 sleep(sleep_time)
 
 pews()
@@ -160,7 +160,7 @@ except Exception as e:
         exit()
 
 sleep(sleep_time)
-safe_ch_addr(pew3, lzr3_addr)
+safe_ch_addr(pew3, lzr3_addr, default_addr)
 sleep(sleep_time)
 
 
