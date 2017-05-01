@@ -35,10 +35,10 @@ def safe_pindown(pin):
 
 def safe_pinup(pin):
     try:
-        pc.digital_write(pin, pc.LOW)
+        pc.digital_write(pin, pc.HIGH)
         print('{} is HIGH'.format(pin))
     except Exception as e:
-        print("Can't set pin {} to low.".format(pin))
+        print("Can't set pin {} to high.".format(pin))
         print(e)
         q = raw_input('Continue [y/n]?')
 
@@ -106,6 +106,7 @@ sleep(sleep_time)
 print('Sensor 1 Startup')
 safe_pinup(shtdn1)
 sleep(sleep_time)
+pews()
 try:
     pew1 = VL6180X()
     sensor_good[0] = True
