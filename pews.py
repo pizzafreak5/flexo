@@ -115,7 +115,7 @@ except Exception as e:
     print(e)
     q = raw_input('Continue [y/n]?')
 
-    if q != 'y' or q != 'Y':
+    if q != 'y' and q != 'Y':
         exit()
 
 sleep(sleep_time)
@@ -136,7 +136,7 @@ except Exception as e:
     print(e)
     q = raw_input('Continue [y/n]?')
 
-    if q != 'y' or q != 'Y':
+    if q != 'y' and q != 'Y':
         exit()
 
 sleep(sleep_time)
@@ -151,13 +151,13 @@ safe_pinup(shtdn3)
 sleep(sleep_time)
 try:
     pew3 = VL6180X()
-    sensor_good[3] = True
+    sensor_good[2] = True
 except Exception as e:
-    print('Failed sensor 1 Startup')
+    print('Failed sensor 3 Startup')
     print(e)
     q = raw_input('Continue [y/n]?')
 
-    if q != 'y' or q != 'Y':
+    if q != 'y' and q != 'Y':
         exit()
 
 sleep(sleep_time)
