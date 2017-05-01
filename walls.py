@@ -10,7 +10,7 @@ default_speeds = {'left':252,'right':255} #left/right. Left could go up a tick o
 adjust_damping = 40
 adjust_modifier = 1
 
-adjust_speed = 235
+adjust_speed = 200
 
 #Note: front delta is probably unessisary, and can be removed to save
 #cycles.
