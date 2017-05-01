@@ -68,3 +68,5 @@ def start_up():
 start_up()
 while (1):
     control_loop()
+
+mc.move_stop()
