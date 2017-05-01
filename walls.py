@@ -10,6 +10,8 @@ default_speeds = {'left':252,'right':255} #left/right. Left could go up a tick o
 adjust_damping = 40
 adjust_modifier = 1
 
+adjust_speed = 235
+
 #Note: front delta is probably unessisary, and can be removed to save
 #cycles.
 def get_delta_diffs():
@@ -29,11 +31,14 @@ def get_delta_diffs():
     f_delta = f_dist_2 - f_dist_1
 
     print('dL:{}\tdF:{}\tdR:{}'.format(l_delta,f_delta,r_delta))
+    print('L:{}\tF:{}\tR:{}'.format(l_dist_2,f_dist_2,r_dist_2))
 
     return {'l_dist':l_dist_2,'r_dist':r_dist_2,'f_dist':f_dist_2, 'l_delta':l_delta,'f_delta':f_delta, 'r_delta':r_delta}
 
 
 def adjust(l_speed, r_speed):
+
+    print('{}:{}',l_speed, r_speed)
 
     mc.move_right_forward(r_speed)
     mc.move_left_forward(l_speed)
@@ -41,32 +46,33 @@ def adjust(l_speed, r_speed):
 
 def control_loop():
 
-    time.sleep(0.25)
+    mc.move_right_forward(default_speeds['right'])
+    mc.move_right_forward(default_speeds['left'])
 
-    adjust(default_speeds['left'], default_speeds['right'])
+    time.sleep(0.5)
 
-    time.sleep(0.25)
+    dr = right.get_distance()
+    dl = left.get_distance()
 
-    [dist_right, dist_front, dist_left, delta_left, delta_right, delta_front] = get_delta_diffs()
+    #With this,, left WILL override right. But there
+    #shouldn't be a situation like this
+    if dr < 45:
+        adjust(adjust_speed, default_speeds[right])
 
-    if front.get_distance() < 100:
-        mc.move_stop()
+    if dl < 45:
+        adjust(default_speeds[left], adjust_speed)
 
-    elif dist_left <=  adjust_damping:
-        if delta_left < 0:
-            temp_r_speed = default_speeds['right'] -(adjust_modifier * delta_left)
+    #run this new speed for half a second
 
-            time.sleep(0.10)
-        elif dist_right <=  adjust_damping:
-            temp_l_speed = default_speeds['left'] -(adjust_modifier * delta_right)
+    time.sleep(0.5)
+        
 
-            time.sleep(0.10)
-
+    
 def start_up():
-    time.sleep(10)
+    time.sleep(5)
 
 start_up()
-while (1):
+while (time.clock() < 8):
     control_loop()
 
 mc.move_stop()
