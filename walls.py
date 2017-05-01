@@ -28,6 +28,8 @@ def get_delta_diffs():
     r_delta = r_dist_2 - r_dist_1
     f_delta = f_dist_2 - f_dist_1
 
+    print('dL:{}\tdF:{}\tdR:{}'.format(l_delta,f_delta,r_delta))
+
     return (l_delta, r_delta, f_delta)
 
 
@@ -41,13 +43,25 @@ def control_loop():
 
     time.sleep(0.25)
 
-    adjust(default_speeds[0], default_speeds[1])
+    adjust(default_speeds['left'], default_speeds['right'])
 
     time.sleep(0.25)
 
     [delta_left, delta_right, delta_front] = get_delta_diffs()
 
-    if abs(delta_left - delta_right) >=  adjust_damping:
-        if delta_left < 0 and delta_right >= 0:
-            temp_r_speed = default_speeds[1] - 
+    if front.get_distance() < 100:
+        mc.move.stop
+
+    elif abs(delta_left - delta_right) >=  adjust_damping:
+        if delta_left < 0:
+            temp_r_speed = default_speeds['right'] -(adjust_modifier * delta_left)
+
+            time.sleep(0.10)
+        elif delta_right < 0:
+            temp_l_speed = default_speeds['left'] -(adjust_modifier * delta_right)
+
+            time.sleep(0.10)
+
+def start_up():
+    time.sleep(10)
     
