@@ -2,12 +2,12 @@ from pews import *
 import motor_controller as mc
 import time
 
-front = pew3
+front = pew1
 right = pew2
 left = pew3
 
 default_speeds = {'left':252,'right':255} #left/right. Left could go up a tick or two
-adjust_damping = 60
+adjust_damping = 40
 adjust_modifier = 1
 
 #Note: front delta is probably unessisary, and can be removed to save
@@ -30,7 +30,7 @@ def get_delta_diffs():
 
     print('dL:{}\tdF:{}\tdR:{}'.format(l_delta,f_delta,r_delta))
 
-    return (l_delta, r_delta, f_delta)
+    return {'l_dist':l_dist_2,'r_dist':r_dist_2,'f_dist':f_dist_2, 'l_delta':l_delta,'f_delta':f_delta, 'r_delta':r_delta}
 
 
 def adjust(l_speed, r_speed):
@@ -47,17 +47,17 @@ def control_loop():
 
     time.sleep(0.25)
 
-    [delta_left, delta_right, delta_front] = get_delta_diffs()
+    [dist_right, dist_front, dist_left, delta_left, delta_right, delta_front] = get_delta_diffs()
 
     if front.get_distance() < 100:
         mc.move_stop()
 
-    elif abs(delta_left - delta_right) >=  adjust_damping:
+    elif dist_left <=  adjust_damping:
         if delta_left < 0:
             temp_r_speed = default_speeds['right'] -(adjust_modifier * delta_left)
 
             time.sleep(0.10)
-        elif delta_right < 0:
+        elif dist_right <=  adjust_damping:
             temp_l_speed = default_speeds['left'] -(adjust_modifier * delta_right)
 
             time.sleep(0.10)

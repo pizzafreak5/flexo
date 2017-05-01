@@ -71,7 +71,7 @@ def turn_right(left_d, right_d):
 
 def control_loop():
 
-	while(1):
+	while(time.clock() < 10):
 		front_d = sensor_1.get_distance()
 		left_d = sensor_2.get_distance()
 		right_d = sensor_3.get_distance()
