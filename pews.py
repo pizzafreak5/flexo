@@ -80,6 +80,8 @@ lzr1_addr = 0x21
 lzr2_addr = 0x23
 lzr3_addr = 0x25
 
+default_addr = 0x29
+
 sleep_time = 5
 
 sensor_good = [False, False, False]
@@ -95,9 +97,9 @@ sleep(sleep_time)
 
 safe_pindown(shtdn1)
 sleep(sleep_time)
-safe_pindown(shtdn1)
+safe_pindown(shtdn2)
 sleep(sleep_time)
-safe_pindown(shtdn1)
+safe_pindown(shtdn3)
 sleep(sleep_time)
 
 #Start 1st Sensor
