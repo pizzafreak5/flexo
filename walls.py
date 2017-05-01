@@ -64,4 +64,7 @@ def control_loop():
 
 def start_up():
     time.sleep(10)
-    
+
+start_up()
+while (1):
+    control_loop()
