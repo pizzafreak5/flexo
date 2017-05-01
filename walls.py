@@ -47,7 +47,7 @@ def adjust(l_speed, r_speed):
 def control_loop():
 
     mc.move_right_forward(default_speeds['right'])
-    mc.move_right_forward(default_speeds['left'])
+    mc.move_left_forward(default_speeds['left'])
 
     time.sleep(0.5)
 
