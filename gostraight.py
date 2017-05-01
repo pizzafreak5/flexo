@@ -1,6 +1,7 @@
 import motor_controller as mc
 import time
 
+time.sleep(20)
 
 mc.move_right_forward(255)
 mc.move_left_forward(255)
