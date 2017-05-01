@@ -74,7 +74,7 @@ def safe_ch_addr(sensor, address, oldaddress):
 
 shtdn1 = 2
 shtdn2 = 7
-shtdn3 = 8
+shtdn3 = 4
 
 lzr1_addr = 0x21
 lzr2_addr = 0x23
