@@ -35,8 +35,8 @@ def get_delta_diffs():
 
 def adjust(l_speed, r_speed):
 
-    mc.move_right_forwards(r_speed)
-    mc.move_left_forwards(l_speed)
+    mc.move_right_forward(r_speed)
+    mc.move_left_forward(l_speed)
     return
 
 def control_loop():
@@ -50,7 +50,7 @@ def control_loop():
     [delta_left, delta_right, delta_front] = get_delta_diffs()
 
     if front.get_distance() < 100:
-        mc.move.stop
+        mc.move_stop()
 
     elif abs(delta_left - delta_right) >=  adjust_damping:
         if delta_left < 0:
