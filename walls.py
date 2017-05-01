@@ -57,10 +57,10 @@ def control_loop():
     #With this,, left WILL override right. But there
     #shouldn't be a situation like this
     if dr < 45:
-        adjust(adjust_speed, default_speeds[right])
+        adjust(adjust_speed, default_speeds['right'])
 
     if dl < 45:
-        adjust(default_speeds[left], adjust_speed)
+        adjust(default_speeds['left'], adjust_speed)
 
     #run this new speed for half a second
 
