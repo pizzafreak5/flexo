@@ -5,6 +5,61 @@ from time import sleep
 
 from lazers import pews
 
+
+
+#INITIALIZATION SEQUENCE
+
+def safe_pinmode(pin, mode):
+    try:
+        pc.pin_mode(pin, mode)
+    except Exception as e:
+        print("Can't set pinmode.")
+        print(e)
+        q = input('Continue [y/n]?')
+
+        if q != 'y' or q != 'Y':
+            exit()
+
+def safe_pindown(pin):
+    try:
+        pc.digital_write(pin, pc.LOW)
+    except Exception as e:
+        print("Can't set pin {} to low.".format(pin))
+        print(e)
+        q = input('Continue [y/n]?')
+
+        if q != 'y' or q != 'Y':
+            exit()
+        
+
+def safe_pinup(pin):
+    try:
+        pc.digital_write(pin, pc.LOW)
+    except Exception as e:
+        print("Can't set pin {} to low.".format(pin))
+        print(e)
+        q = input('Continue [y/n]?')
+
+        if q != 'y' or q != 'Y':
+            exit()
+
+def reset_pins(*args):
+    for pin in args:
+        safe_pinup(pin)
+
+def reset_addr(sensor, address):
+    try:
+        sensor.change_address(address, 0x29)
+    except Exception as e:
+        print("Couldn't change address of sensor at {}".format(address))
+        print(e)
+        q = input('Continue [y/n]?')
+
+        if q != 'y' or q != 'Y':
+            exit()
+
+
+
 shtdn1 = 2
 shtdn2 = 7
 shtdn3 = 8
@@ -81,54 +136,3 @@ except Exception as e:
         exit()
 
 pews()
-
-#INITIALIZATION SEQUENCE
-
-def safe_pinmode(pin, mode):
-    try:
-        pc.pin_mode(pin, mode)
-    except Exception as e:
-        print("Can't set pinmode.")
-        print(e)
-        q = input('Continue [y/n]?')
-
-        if q != 'y' or q != 'Y':
-            exit()
-
-def safe_pindown(pin):
-    try:
-        pc.digital_write(pin, pc.LOW)
-    except Exception as e:
-        print("Can't set pin {} to low.".format(pin))
-        print(e)
-        q = input('Continue [y/n]?')
-
-        if q != 'y' or q != 'Y':
-            exit()
-        
-
-def safe_pinup(pin):
-    try:
-        pc.digital_write(pin, pc.LOW)
-    except Exception as e:
-        print("Can't set pin {} to low.".format(pin))
-        print(e)
-        q = input('Continue [y/n]?')
-
-        if q != 'y' or q != 'Y':
-            exit()
-
-def reset_pins(*args):
-    for pin in args:
-        safe_pinup(pin)
-
-def reset_addr(sensor, address):
-    try:
-        sensor.change_address(address, 0x29)
-    except Exception as e:
-        print("Couldn't change address of sensor at {}".format(address))
-        print(e)
-        q = input('Continue [y/n]?')
-
-        if q != 'y' or q != 'Y':
-            exit()
