@@ -17,7 +17,7 @@ def safe_pinmode(pin, mode):
         print(e)
         q = raw_input('Continue [y/n]?')
 
-        if q != 'y' or q != 'Y':
+        if q != 'y' and q != 'Y':
             exit()
 
 def safe_pindown(pin):
@@ -29,7 +29,7 @@ def safe_pindown(pin):
         print(e)
         q = raw_input('Continue [y/n]?')
 
-        if q != 'y' or q != 'Y':
+        if q != 'y' and q != 'Y':
             exit()
         
 
@@ -42,7 +42,7 @@ def safe_pinup(pin):
         print(e)
         q = raw_input('Continue [y/n]?')
 
-        if q != 'y' or q != 'Y':
+        if q != 'y' and q != 'Y':
             exit()
 
 def reset_pins(*args):
@@ -57,7 +57,7 @@ def reset_addr(sensor, address):
         print(e)
         q = raw_input('Continue [y/n]?')
 
-        if q != 'y' or q != 'Y':
+        if q != 'y' and q != 'Y':
             exit()
 
 def safe_ch_addr(sensor, address, oldaddress):
@@ -68,7 +68,7 @@ def safe_ch_addr(sensor, address, oldaddress):
         print(e)
         q = raw_input('Continue [y/n]?')
 
-        if q != 'y' or q != 'Y':
+        if q != 'y' and q != 'Y':
             exit()
 
 
@@ -82,7 +82,7 @@ lzr3_addr = 0x25
 
 default_addr = 0x29
 
-sleep_time = 5
+sleep_time = 0.5
 
 sensor_good = [False, False, False]
 
@@ -106,7 +106,7 @@ sleep(sleep_time)
 print('Sensor 1 Startup')
 safe_pinup(shtdn1)
 sleep(sleep_time)
-pews()
+#pews()
 try:
     pew1 = VL6180X()
     sensor_good[0] = True
@@ -122,7 +122,7 @@ sleep(sleep_time)
 safe_ch_addr(pew1, lzr1_addr, default_addr)
 sleep(sleep_time)
 
-pews()
+#pews()
 
 #Start 2st Sensor
 print('Sensor 2 Startup')
@@ -143,7 +143,7 @@ sleep(sleep_time)
 safe_ch_addr(pew2, lzr2_addr, default_addr)
 sleep(sleep_time)
 
-pews()
+#pews()
 
 #Start 3st Sensor
 print('Sensor 3 Startup')
