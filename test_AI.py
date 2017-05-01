@@ -1,6 +1,9 @@
+#re-written to support new startup script, pews.py
+# - Garrett
+
 import motor_controller as m
-import lazers as l
 import time
+from pews import *
 
 speed_fastest = 255
 speed_faster  = 235
@@ -87,12 +90,17 @@ def control_loop():
 			turn_right(left_d, right_d)
 
 
-		if(right_d == 0):
+		if(right_d == 0): #Unless I'm retarded, this seems like it
+                                        #doesn't turn until it crashes into the wall
 			print("Turn Left")
 			turn_left(left_d, right_d)
 	
 		time.sleep(0.500)	# Sleep for half a second
 		m.move_stop()
 
-[sensor_1, sensor_2, sensor_3] = l.ininitialize()
+
+sensor_1 = pew3
+sensor_2 = pew2
+sensor_3 = pew1
+
 control_loop()
