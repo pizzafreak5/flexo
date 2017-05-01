@@ -23,6 +23,7 @@ def safe_pinmode(pin, mode):
 def safe_pindown(pin):
     try:
         pc.digital_write(pin, pc.LOW)
+        print('{} is LOW'.format(pin))
     except Exception as e:
         print("Can't set pin {} to low.".format(pin))
         print(e)
@@ -35,6 +36,7 @@ def safe_pindown(pin):
 def safe_pinup(pin):
     try:
         pc.digital_write(pin, pc.LOW)
+        print('{} is HIGH'.format(pin))
     except Exception as e:
         print("Can't set pin {} to low.".format(pin))
         print(e)
@@ -58,17 +60,27 @@ def reset_addr(sensor, address):
         if q != 'y' or q != 'Y':
             exit()
 
+def safe_ch_addr(sensor, address, oldaddress):
+    try:
+        sensor.change_address(oldaddress, address)
+    except Exception as e:
+        print("Couldn't change address of sensor at {}".format(oldaddress))
+        print(e)
+        q = raw_input('Continue [y/n]?')
+
+        if q != 'y' or q != 'Y':
+            exit()
 
 
 shtdn1 = 2
 shtdn2 = 7
 shtdn3 = 8
 
-lzr1_add = 0x21
-lzr2_add = 0x23
-lzr3_add = 0x25
+lzr1_addr = 0x21
+lzr2_addr = 0x23
+lzr3_addr = 0x25
 
-sleep_time = 1
+sleep_time = 5
 
 sensor_good = [False, False, False]
 
@@ -103,25 +115,35 @@ except Exception as e:
     if q != 'y' or q != 'Y':
         exit()
 
+sleep(sleep_time)
+safe_ch_addr(pew1, lzr1_addr)
+sleep(sleep_time)
+
 pews()
 
 #Start 2st Sensor
+print('Sensor 2 Startup')
 safe_pinup(shtdn2)
 sleep(sleep_time)
 try:
     pew2 = VL6180X()
     sensor_good[1] = True
 except Exception as e:
-    print('Failed sensor 1 Startup')
+    print('Failed sensor 2 Startup')
     print(e)
     q = raw_input('Continue [y/n]?')
 
     if q != 'y' or q != 'Y':
         exit()
 
+sleep(sleep_time)
+safe_ch_addr(pew2, lzr2_addr)
+sleep(sleep_time)
+
 pews()
 
 #Start 3st Sensor
+print('Sensor 3 Startup')
 safe_pinup(shtdn3)
 sleep(sleep_time)
 try:
@@ -135,4 +157,10 @@ except Exception as e:
     if q != 'y' or q != 'Y':
         exit()
 
+sleep(sleep_time)
+safe_ch_addr(pew3, lzr3_addr)
+sleep(sleep_time)
+
+
 pews()
+
