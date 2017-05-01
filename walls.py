@@ -4,10 +4,11 @@ import time
 
 front = pew3
 right = pew2
-left = pew 3
+left = pew3
 
-default_speeds = (252,255) #left/right. Left could go up a tick or two
-
+default_speeds = {'left':252,'right':255} #left/right. Left could go up a tick or two
+adjust_damping = 60
+adjust_modifier = 1
 
 #Note: front delta is probably unessisary, and can be removed to save
 #cycles.
@@ -30,4 +31,23 @@ def get_delta_diffs():
     return (l_delta, r_delta, f_delta)
 
 
-def adjust()
+def adjust(l_speed, r_speed):
+
+    mc.move_right_forwards(r_speed)
+    mc.move_left_forwards(l_speed)
+    return
+
+def control_loop():
+
+    time.sleep(0.25)
+
+    adjust(default_speeds[0], default_speeds[1])
+
+    time.sleep(0.25)
+
+    [delta_left, delta_right, delta_front] = get_delta_diffs()
+
+    if abs(delta_left - delta_right) >=  adjust_damping:
+        if delta_left < 0 and delta_right >= 0:
+            temp_r_speed = default_speeds[1] - 
+    
