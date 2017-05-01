@@ -3,7 +3,7 @@ import pcduino as pc
 from vl6180x import VL6180X
 from time import sleep
 
-from lazers import pews()
+from lazers import pews
 
 shtdn1 = 2
 shtdn2 = 7
@@ -45,8 +45,8 @@ except Exception as e:
     print(e)
     q = input('Continue [y/n]?')
 
-        if q != 'y' || q != 'Y':
-            exit()
+    if q != 'y' or q != 'Y':
+        exit()
 
 pews()
 
@@ -61,8 +61,8 @@ except Exception as e:
     print(e)
     q = input('Continue [y/n]?')
 
-        if q != 'y' || q != 'Y':
-            exit()
+    if q != 'y' or q != 'Y':
+        exit()
 
 pews()
 
@@ -77,8 +77,8 @@ except Exception as e:
     print(e)
     q = input('Continue [y/n]?')
 
-        if q != 'y' || q != 'Y':
-            exit()
+    if q != 'y' or q != 'Y':
+        exit()
 
 pews()
 
@@ -92,7 +92,7 @@ def safe_pinmode(pin, mode):
         print(e)
         q = input('Continue [y/n]?')
 
-        if q != 'y' || q != 'Y':
+        if q != 'y' or q != 'Y':
             exit()
 
 def safe_pindown(pin):
@@ -103,7 +103,7 @@ def safe_pindown(pin):
         print(e)
         q = input('Continue [y/n]?')
 
-        if q != 'y' || q != 'Y'::
+        if q != 'y' or q != 'Y':
             exit()
         
 
@@ -115,10 +115,10 @@ def safe_pinup(pin):
         print(e)
         q = input('Continue [y/n]?')
 
-        if q != 'y' || q != 'Y'::
+        if q != 'y' or q != 'Y':
             exit()
 
-def reset_pins(args*):
+def reset_pins(*args):
     for pin in args:
         safe_pinup(pin)
 
@@ -130,5 +130,5 @@ def reset_addr(sensor, address):
         print(e)
         q = input('Continue [y/n]?')
 
-        if q != 'y' || q != 'Y'::
+        if q != 'y' or q != 'Y':
             exit()
