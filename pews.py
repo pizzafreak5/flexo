@@ -93,7 +93,7 @@ print('Sensor 1 Startup')
 safe_pinup(shtdn1)
 sleep(sleep_time)
 try:
-    pew1 = sensor()
+    pew1 = V6180X()
     sensor_good[0] = True
 except Exception as e:
     print('Failed sensor 1 Startup')
@@ -109,7 +109,7 @@ pews()
 safe_pinup(shtdn2)
 sleep(sleep_time)
 try:
-    pew2 = sensor()
+    pew2 = V6180X()
     sensor_good[1] = True
 except Exception as e:
     print('Failed sensor 1 Startup')
@@ -125,7 +125,7 @@ pews()
 safe_pinup(shtdn3)
 sleep(sleep_time)
 try:
-    pew3 = sensor()
+    pew3 = V6180X()
     sensor_good[3] = True
 except Exception as e:
     print('Failed sensor 1 Startup')
