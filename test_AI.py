@@ -24,12 +24,12 @@ def move_forward(left_d, right_d):
 		return
 
 	elif distance_diff <= 40 and distance_diff >=0:
-		print("Compensate left")
+		print("Compensate left") # left is greater than right distance
 		m.move_left_forward(speed_normal)
 		m.move_right_forward(speed_fast)
 
 	elif distance_diff >= -40 and distance_diff <=0:
-		print("Compensate right")
+		print("Compensate right") # right is greater than left distance
 		m.move_left_forward(speed_fast)
 		m.move_right_forward(speed_normal)
 
@@ -54,20 +54,15 @@ def move_backward(left_d, right_d):
 		m.move_left_backward(speed_normal)
 
 def turn_left(left_d, right_d):
-	distance_diff = left_d - right_d
-	if abs(distance_diff) <= 10:
-
-		m.move_left_forward(speed_slow)
-		m.move_right_forward(speed_fast)
-		return
+	m.move_left_forward(speed_slow)
+	m.move_right_forward(speed_fast)
+	return
 
 def turn_right(left_d, right_d):
-	distance_diff = left_d - right_d
 	
-	if abs(distance_diff) <= 10:
-		m.move_left_forward(speed_fast)
-		m.move_right_forward(speed_slow)
-		return
+	m.move_left_forward(speed_fast)
+	m.move_right_forward(speed_slow)
+	return
 
 def control_loop():
 
@@ -80,17 +75,17 @@ def control_loop():
 		move_forward(left_d,right_d)
 
 
-		if(front_d <= 100):
+		if(front_d <= 70):
 			print("Back up")
 			move_backward(left_d, right_d)
 
 
-		if(left_d == 0):
+		if(left_d <= 50):
 			print("Turn Right")
 			turn_right(left_d, right_d)
 
 
-		if(right_d == 0): #Unless I'm retarded, this seems like it
+		if(right_d <= 50): #Unless I'm retarded, this seems like it
                                         #doesn't turn until it crashes into the wall
 			print("Turn Left")
 			turn_left(left_d, right_d)
