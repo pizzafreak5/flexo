@@ -19,18 +19,18 @@ def move_forward(left_d, right_d):
 	distance_diff = left_d - right_d
 	if abs(distance_diff) <=40:
 		print("Move forward")
-		m.move_left_forward(speed_normal)
-		m.move_right_forward(speed_normal)
+		m.move_left_forward(speed_fast)
+		m.move_right_forward(speed_fast)
 		return
 
-	elif distance_diff <= 40 and distance_diff >=0:
+	elif distance_diff >= 40 and distance_diff >=0:
 		print("Compensate left") # left is greater than right distance
 		m.move_left_forward(speed_slow)
-		m.move_right_forward(speed_normal)
+		m.move_right_forward(speed_fast)
 
-	elif distance_diff >= -40 and distance_diff <=0:
+	elif distance_diff <= -40 and distance_diff <=0:
 		print("Compensate right") # right is greater than left distance
-		m.move_left_forward(speed_normal)
+		m.move_left_forward(speed_fast)
 		m.move_right_forward(speed_slow)
 
 
@@ -44,12 +44,12 @@ def move_backward(left_d, right_d):
 
 def turn_left(left_d, right_d):
 	m.move_left_forward(speed_slowest)
-	m.move_right_forward(speed_normal)
+	m.move_right_forward(speed_fast)
 	return
 
 def turn_right(left_d, right_d):
 	
-	m.move_left_forward(speed_normal)
+	m.move_left_forward(speed_fast)
 	m.move_right_forward(speed_slowest)
 	return
 
