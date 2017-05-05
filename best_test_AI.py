@@ -12,26 +12,40 @@ speed_normal  = 195
 speed_slow    = 175
 speed_slowest = 155
 
+def left_corner():
 
+	m.move_right_forward(176)
+	m.move_left_forward(170)
+
+	time.sleep(0.8)
+	m.move_stop()
+
+	m.move_right_forward(176)
+	m.move_left_backward(176)
+	
+	time.sleep(1.2)
+
+	#TURN 90 DEG 
+	m.move_stop()
 
 
 def move_forward(left_d, right_d):
 	distance_diff = left_d - right_d
-	if abs(distance_diff) <=40:
+	if abs(distance_diff) <=60:
 		print("Move forward")
-		m.move_left_forward(speed_fast)
-		m.move_right_forward(speed_fast)
+		m.move_left_forward(speed_slow)
+		m.move_right_forward(speed_slow + 6)
 		return
 
-	elif distance_diff >= 40 and distance_diff >=0:
+	elif distance_diff >= 80 and distance_diff >=0:
 		print("Compensate left") # left is greater than right distance
-		m.move_left_forward(speed_slow)
-		m.move_right_forward(speed_fast)
+		m.move_left_forward(speed_slowest)
+		m.move_right_forward(speed_normal -10 + 6)
 
-	elif distance_diff <= -40 and distance_diff <=0:
+	elif distance_diff <= -80 and distance_diff <=0:
 		print("Compensate right") # right is greater than left distance
-		m.move_left_forward(speed_fast)
-		m.move_right_forward(speed_slow)
+		m.move_left_forward(speed_normal - 10)
+		m.move_right_forward(speed_slowest)
 
 
 
@@ -39,17 +53,17 @@ def move_backward(left_d, right_d):
 	print("Move backwards")
 	m.move_left_backward(speed_normal)
 	m.move_right_backward(speed_normal)
-	time.sleep(1.00)	# Do this for half a second
+	time.sleep(.50)	# Do this for half a second
 
 
 def turn_left(left_d, right_d):
-	m.move_left_forward(speed_slowest)
+	m.move_left_forward(speed_normal)
 	m.move_right_forward(speed_fast)
 	return
 
 def turn_right(left_d, right_d):
 	
-	m.move_left_forward(speed_fast)
+	m.move_left_forward(speed_normal)
 	m.move_right_forward(speed_slowest)
 	return
 
@@ -66,23 +80,35 @@ def control_loop():
 		move_forward(left_d,right_d)
 
 
-		if(front_d <= 70):
+		if(front_d <= 40):
 			print("Back up")
+
 			move_backward(left_d, right_d)
 
+		if (left_d  > 240):
+			#mark intersection
+			m.move_stop()
+			time.sleep(1)
+			left_corner()
 
-		if(left_d >= 200):				# Intersection to Left
-			print("Turn Left")
-			turn_left(left_d, right_d)
+		if (right_d > 240):
+			m.move_stop()
+			time.sleep(5)
+			
 
 
-		if(right_d >= 200): 			# Intersection to Right
-			print("Turn Right")
-			turn_right(left_d, right_d)
+#		if(left_d >= 200):				# Intersection to Left
+#			print("Turn Left")
+#			turn_left(left_d, right_d)
+
+
+#		if(right_d >= 200): 			# Intersection to Right
+#			print("Turn Right")
+#			turn_right(left_d, right_d)
 
 	
-		time.sleep(0.100)	# Sleep for half a second
-		m.move_stop()
+		time.sleep(0.050)	# Sleep for half a second
+#		m.move_stop()
 		count -= 1
 
 
