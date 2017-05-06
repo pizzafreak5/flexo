@@ -28,6 +28,21 @@ def left_corner():
 	#TURN 90 DEG 
 	m.move_stop()
 
+def right_corner():
+
+	m.move_right_forward(170)
+	m.move_left_forward(170)
+
+	time.sleep(0.8)
+	
+	m.move_stop()
+
+	m.move_left_forward(170)
+	m.move_right_backward(170)
+	time.sleep(1.2)
+
+	#turn 90 deg
+	move.move_stop()
 
 def move_forward(left_d, right_d):
 	distance_diff = left_d - right_d
@@ -94,6 +109,7 @@ def control_loop():
 		if (right_d > 240):
 			m.move_stop()
 			time.sleep(5)
+			right_corner()
 			
 
 
