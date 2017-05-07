@@ -86,7 +86,7 @@ def forward(d_left, d_right, f_time = move_forward_time):
 
 def control_loop():
 
-    global current_stat, next_node, current_direction, goal
+    global current_state, next_node, current_direction, goal
 
     if current_state == 'start':
 
