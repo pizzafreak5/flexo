@@ -27,7 +27,7 @@ intersection_distance = 255
 #map_stuff
 start = ms.init_map()
 current_node = start
-next_node
+next_node = None
 start_direction = 'east'
 current_direction = 'start_direction'
 goal = 'B14'
