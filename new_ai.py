@@ -13,15 +13,15 @@ max_speed = 255 #This should not change
 max_vs_cali = max_speed - cali_speed
 
 #times
-cali_turn_time = 0.90
+cali_turn_time = 0.80
 motor_rest_time = 1
 move_forward_time = 0.15
-move_into_intersection_time = 1.25
-cross_intersection_time = 2.5
+move_into_intersection_time = 0.8
+cross_intersection_time = 2.0
 
 #constants
 ratio_damp = 0.25
-adjust_comp = 0.9
+adjust_comp = 0.75
 intersection_distance = 253
 
 #map_stuff
