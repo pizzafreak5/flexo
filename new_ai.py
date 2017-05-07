@@ -142,7 +142,7 @@ def control_loop():
             exit()
 
         else:
-            dir_to_turn = ms.turn_mapping(current_direction, direction)
+            dir_to_turn = ms.turn_direction(current_direction, direction)
 
             if dir_to_turn == 'left':
                 #move into intersection
