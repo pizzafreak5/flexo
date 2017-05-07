@@ -25,7 +25,7 @@ adjust_comp = 0.5
 intersection_distance = 255
 
 #map_stuff
-start = init_map()
+start = ms.init_map()
 current_node = start
 next_node
 start_direction = 'east'
