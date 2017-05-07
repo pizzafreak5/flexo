@@ -71,12 +71,12 @@ def forward(d_left, d_right, f_time = move_forward_time):
     if comp_speed_f > 255:
         comp_speed_f = 255
 
-    if d_ratio > 1 + ratio_damp:
+    if d_ratio < 1 - ratio_damp:
         print('Compensate RIGHT: {}<->{}'.format(comp_speed_f, comp_speed_s))
         m.move_left_forward(comp_speed_f)
         m.move_right_forward(comp_speed_s)
 
-    elif d_ratio < 1 - ratio_damp:
+    elif d_ratio > 1 + ratio_damp:
         print('Compensate LEFT: {}<->{}'.format(comp_speed_s, comp_speed_f))
         m.move_left_forward(comp_speed_s)
         m.move_right_forward(comp_speed_f)
