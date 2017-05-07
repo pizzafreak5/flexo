@@ -121,7 +121,7 @@ def control_loop():
         d_right = right.get_distance()
 
         if d_left >= intersection_distance or d_right >= intersection_distance:
-            state = 'junction'
+            current_state = 'junction'
         
         else:
             forward(d_left, d_right)
@@ -151,7 +151,7 @@ def control_loop():
                 turn_90(True)
                 #move into new straight
                 forward(100,100, move_into_intersection_time)
-                state = 'traveling'
+                current_state = 'traveling'
 
             if dir_to_turn == 'right':
                 #move into intersection
@@ -160,16 +160,16 @@ def control_loop():
                 turn_90(False)
                 #move into new straight
                 forward(100,100, move_into_intersection_time)
-                state = 'traveling'
+                current_state = 'traveling'
 
             if dir_to_turn == 'backward': #honestly no idea how this happened
                 print('The map says we should go back. No idea')
-                state = 'NOPE'
+                current_state = 'NOPE'
 
             if dir_to_turn == 'forward': #Cross the intersection.
                 print('RUNNING THE RED')
                 forward(100,100,cross_intersection_time)
-                state = 'traveling'
+                current_state = 'traveling'
                 
 
     if current_state == 'obstacle':
