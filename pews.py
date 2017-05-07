@@ -82,7 +82,7 @@ lzr3_addr = 0x25
 
 default_addr = 0x29
 
-sleep_time = 0.5
+sleep_time = 1
 
 sensor_good = [False, False, False]
 

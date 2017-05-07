@@ -1,3 +1,10 @@
+
+#direction you have - direction you want - nessisary turn
+turn_mapping = {'north':{'north':'forward','east':'right','south':'backward','west':'left'},
+                'east':{'north':'left','east':'forward','south':'right','west':'backward'},
+                'south':{'north':'backward','east':'left','south':'forward','west':'right'},
+                'west':{'north':'right','east':'backward','south':'left','west':'forward'}}
+
 class junction:
     def __init__(self, valid_moves, name):
         self.valid_moves = valid_moves
@@ -209,6 +216,10 @@ def find_direction(current, goal):
     if current.west != None:
         if current.west.name == goal:
             return "west"
+
+def turn_direction(current_direction, goal_direction):
+
+    return turn_mapping[current_direction][goal_direction]
 
 def update_location(junction, direction):
     if direction == "north":
