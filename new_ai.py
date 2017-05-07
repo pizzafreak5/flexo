@@ -86,6 +86,8 @@ def forward(d_left, d_right, f_time = move_forward_time):
 
 def control_loop():
 
+    global current_stat, next_node, current_direction, goal
+
     if current_state == 'start':
 
         next_node, direction, end = ms.navigate_single(current_node, goal)
