@@ -20,7 +20,7 @@ move_into_intersection_time = 1.25
 cross_intersection_time = 2.5
 
 #constants
-ratio_damp = 0.2
+ratio_damp = 0.3
 adjust_comp = 0.5
 intersection_distance = 255
 
@@ -93,6 +93,8 @@ def control_loop():
 
     global current_state, next_node, current_node, current_direction, goal, intersection_distance
 
+    print('STATE: {}'.format(current_state))
+
     if current_state == 'start':
 
         next_node, direction, end = ms.navigate_single(current_node, goal)
@@ -144,6 +146,7 @@ def control_loop():
 
             if dir_to_turn == 'left':
                 #move into intersection
+                print('TURNING LEFT')
                 forward(100,100, move_into_intersection_time)
                 turn_90(True)
                 #move into new straight
@@ -152,6 +155,7 @@ def control_loop():
 
             if dir_to_turn == 'right':
                 #move into intersection
+                print('TURNING RIGHT')
                 forward(100,100, move_into_intersection_time)
                 turn_90(False)
                 #move into new straight
@@ -163,6 +167,7 @@ def control_loop():
                 state = 'NOPE'
 
             if dir_to_turn == 'forward': #Cross the intersection.
+                print('RUNNING THE RED')
                 forward(100,100,cross_intersection_time)
                 state = 'traveling'
                 
