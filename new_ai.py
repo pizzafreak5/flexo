@@ -190,6 +190,7 @@ def control_loop():
         exit()
     
 
+time.sleep(10)
 while (True):
     control_loop()
     
