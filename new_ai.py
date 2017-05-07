@@ -178,6 +178,8 @@ def control_loop():
         exit()
     
 
+while (True):
+    control_loop()
     
     
 
