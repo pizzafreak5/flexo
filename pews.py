@@ -131,7 +131,7 @@ sleep(sleep_time)
 safe_pinup(shtdn2)
 sleep(sleep_time)
 safe_pinup(shtdn2)
-sleep(sleep_time)
+sleep(sleep_time * 2)
 try:
     pew2 = VL6180X()
     sensor_good[1] = True
