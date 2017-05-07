@@ -239,7 +239,7 @@ def print_path(path):
     for node in path:
         path_list.append(node.name)
 
-    print("Path:", end="")
+    #print("Path:", end="")
     path_str = ", ".join(path_list)
     print (path_str)
 
@@ -259,7 +259,7 @@ def navigate(start, goal):
         
         #Get the movement path that it should move
         direction = find_direction(current, go_to.name) 
-        print(current.name, "-->", direction, "--> ", end= "") 
+        #print(current.name, "-->", direction, "--> ", end= "") 
         
         #move the direction needed
         
