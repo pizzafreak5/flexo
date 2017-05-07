@@ -20,8 +20,8 @@ move_into_intersection_time = 1.25
 cross_intersection_time = 2.5
 
 #constants
-ratio_damp = 0.3
-adjust_comp = 0.75
+ratio_damp = 0.25
+adjust_comp = 0.9
 intersection_distance = 253
 
 #map_stuff
