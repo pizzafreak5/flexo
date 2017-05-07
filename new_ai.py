@@ -21,8 +21,8 @@ cross_intersection_time = 2.5
 
 #constants
 ratio_damp = 0.3
-adjust_comp = 0.5
-intersection_distance = 255
+adjust_comp = 0.75
+intersection_distance = 253
 
 #map_stuff
 start = ms.init_map()
