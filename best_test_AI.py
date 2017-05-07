@@ -12,16 +12,17 @@ speed_normal  = 195
 speed_slow    = 175
 speed_slowest = 155
 
+speed_corner = 230
 def left_corner():
 
-	m.move_right_forward(176)
-	m.move_left_forward(170)
+	m.move_right_forward(speed_corner)
+	m.move_left_forward(speed_corner)
 
 	time.sleep(0.8)
 	m.move_stop()
 
-	m.move_right_forward(176)
-	m.move_left_backward(176)
+	m.move_right_forward(speed_corner)
+	m.move_left_backward(speed_corner)
 	
 	time.sleep(1.2)
 
@@ -30,37 +31,37 @@ def left_corner():
 
 def right_corner():
 
-	m.move_right_forward(170)
-	m.move_left_forward(170)
+	m.move_right_forward(speed_corner)
+	m.move_left_forward(speed_corner)
 
 	time.sleep(0.8)
 	
 	m.move_stop()
 
-	m.move_left_forward(170)
-	m.move_right_backward(170)
+	m.move_left_forward(speed_corner)
+	m.move_right_backward(speed_corner)
 	time.sleep(1.2)
 
 	#turn 90 deg
-	move.move_stop()
+	m.move_stop()
 
 def move_forward(left_d, right_d):
 	distance_diff = left_d - right_d
 	if abs(distance_diff) <=60:
 		print("Move forward")
-		m.move_left_forward(speed_slow)
-		m.move_right_forward(speed_slow + 6)
+		m.move_left_forward(speed_normal)
+		m.move_right_forward(speed_normal)
 		return
 
 	elif distance_diff >= 80 and distance_diff >=0:
 		print("Compensate left") # left is greater than right distance
-		m.move_left_forward(speed_slowest)
-		m.move_right_forward(speed_normal -10 + 6)
+		m.move_left_forward(speed_slow)
+		m.move_right_forward(speed_fast)
 
 	elif distance_diff <= -80 and distance_diff <=0:
 		print("Compensate right") # right is greater than left distance
-		m.move_left_forward(speed_normal - 10)
-		m.move_right_forward(speed_slowest)
+		m.move_left_forward(speed_fast)
+		m.move_right_forward(speed_slow)
 
 
 
@@ -99,17 +100,20 @@ def control_loop():
 			print("Back up")
 
 			move_backward(left_d, right_d)
-
-		if (left_d  > 240):
+		if (left_d == 255 and right_d < 255):
 			#mark intersection
 			m.move_stop()
 			time.sleep(1)
 			left_corner()
 
-		if (right_d > 240):
+		if (right_d  == 255 and left_d < 255):
+			m.move_stop()
+			time.sleep(1)
+			right_corner()
+
+		if (right_d == 255 and left_d == 255):
 			m.move_stop()
 			time.sleep(5)
-			right_corner()
 			
 
 
