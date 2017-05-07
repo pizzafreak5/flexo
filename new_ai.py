@@ -59,8 +59,9 @@ def forward(d_left, d_right, f_time = move_forward_time):
 
     global cali_speed, max_vs_cali, adjust_comp
 
-    d_ratio = float(d_left) / float(d_right)
-    d_ratio_inv = float(d_right)/float(d_left)
+    d_ratio = float(d_left + 1) / float(d_right + 1)
+
+    
 
     #faster compensation speed
     comp_speed_f = int(cali_speed + (max_vs_cali * d_ratio * adjust_comp))
