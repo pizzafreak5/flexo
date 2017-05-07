@@ -36,6 +36,8 @@ states = ['traveling', 'start', 'end', 'junction', 'obstacle', 'backup', 'NOPE']
 current_state = 'start'
 
 def turn_90(left):
+
+    global cali_speed, cali_turn_time, motor_rest_time
     
     m.move_stop()
     time.sleep(motor_rest_time)
@@ -54,6 +56,8 @@ def turn_90(left):
     time.sleep(motor_rest_time)
 
 def forward(d_left, d_right, f_time = move_forward_time):
+
+    global cali_speed, max_vs_cali, adjust_comp
 
     d_ratio = float(d_left) / float(d_right)
     d_ratio_inv = float(d_right)/float(d_left)
@@ -86,7 +90,7 @@ def forward(d_left, d_right, f_time = move_forward_time):
 
 def control_loop():
 
-    global current_state, next_node, current_direction, goal
+    global current_state, next_node, current_node, current_direction, goal, intersection_distance
 
     if current_state == 'start':
 
