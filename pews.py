@@ -127,6 +127,10 @@ sleep(sleep_time)
 #Start 2st Sensor
 print('Sensor 2 Startup')
 safe_pinup(shtdn2)
+sleep_sleep_time)
+safe_pinup(shtdn2)
+sleep_sleep_time)
+safe_pinup(shtdn2)
 sleep(sleep_time)
 try:
     pew2 = VL6180X()
