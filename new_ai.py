@@ -22,7 +22,7 @@ dickered_time = 0.5
 
 #constants
 ratio_damp = 0.2
-adjust_comp = 0.1
+adjust_comp = 0.4
 intersection_distance = 253
 minimum_distance = 10
 dickered_speed = 180
