@@ -16,7 +16,7 @@ max_vs_cali = max_speed - cali_speed
 cali_turn_time = 1.4
 motor_rest_time = 1
 move_forward_time = 0.05
-move_into_intersection_time = 0.70
+move_into_intersection_time = 0.80
 cross_intersection_time = 1.2
 dickered_time = 0.5
 
@@ -204,6 +204,8 @@ def control_loop():
                 print('RUNNING THE RED')
                 forward(100,100,cross_intersection_time)
                 current_state = 'traveling'
+
+            current_direction = direction
                 
 
     if current_state == 'obstacle':
