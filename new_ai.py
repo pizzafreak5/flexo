@@ -9,7 +9,7 @@ left = pew3
 
 #speeds
 cali_speed = 190
-max_speed = 255
+max_speed = 230
 max_vs_cali = max_speed - cali_speed
 
 #times
