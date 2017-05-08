@@ -27,7 +27,7 @@ while True:
         m.move_right_backward(speed)
         m.move_left_backward(speed)
 
-    if user_input == "q":
+    if user_input == "x":
         m.move_stop()
         break
 
