@@ -9,7 +9,7 @@ left = pew3
 
 #speeds
 cali_speed = 190
-max_speed = 210
+max_speed = 255
 max_vs_cali = max_speed - cali_speed
 
 #times
@@ -21,7 +21,7 @@ cross_intersection_time = 1.80
 dickered_time = 0.5
 
 #constants
-ratio_damp = 0.1
+ratio_damp = 0.2
 adjust_comp = 0.8
 intersection_distance = 253
 minimum_distance = 10
