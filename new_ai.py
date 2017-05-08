@@ -18,11 +18,14 @@ motor_rest_time = 1
 move_forward_time = 0.05
 move_into_intersection_time = 0.70
 cross_intersection_time = 1.2
+dickered_time = 0.8
 
 #constants
 ratio_damp = 0.2
 adjust_comp = 0.2
 intersection_distance = 253
+minimum_distance = 5
+dickered_speed = 160
 
 #map_stuff
 start = ms.init_map()
@@ -32,7 +35,7 @@ start_direction = 'east'
 current_direction = start_direction
 goal = 'B14'
 #states
-states = ['traveling', 'start', 'end', 'junction', 'obstacle', 'backup', 'NOPE']
+states = ['traveling', 'start', 'end', 'junction', 'obstacle', 'backup', 'NOPE', 'dickered']
 current_state = 'start'
 
 def turn_90(left):
@@ -120,12 +123,25 @@ def control_loop():
         time.sleep(0.02)
         d_right = right.get_distance()
 
+        if d_left <= minimum_distance or d_right <= minimum_distance:
+            current_state = 'dickered'
+            m.move_stop()
+
         if d_left >= intersection_distance or d_right >= intersection_distance:
             current_state = 'junction'
             m.move_stop()
         
         else:
             forward(d_left, d_right)
+
+    if current_state == 'dickered':
+        m.move_stop()
+        time.sleep(motor_rest_time)
+
+        m.move_right_backward(dickered_speed)
+        m.move_left_backward(dickered_speed)
+
+        time.sleep(dickered_time)
         
 
     if current_state == 'junction':
