@@ -288,10 +288,10 @@ def navigate_single(start, goal):
 
 def walls(cardinal_direction, location):
     #Front, left, right, back, true if wall
-    front = None
-    left = None
-    right = None
-    back = None
+    front = False
+    left = False
+    right = False
+    back = False
 
     turn_pos = []
 
@@ -319,7 +319,8 @@ def walls(cardinal_direction, location):
     if "backward" in turn_pos:
         back = True
 
-    return front, left, right, back
+
+    return not front, not left, not right, not back
     
 
 #EXAMPLE USAGE   
