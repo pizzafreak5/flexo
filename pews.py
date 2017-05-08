@@ -82,7 +82,7 @@ lzr3_addr = 0x25
 
 default_addr = 0x29
 
-sleep_time = 1
+sleep_time = 0.5
 
 sensor_good = [False, False, False]
 
@@ -128,10 +128,6 @@ sleep(sleep_time)
 print('Sensor 2 Startup')
 safe_pinup(shtdn2)
 sleep(sleep_time)
-safe_pinup(shtdn2)
-sleep(sleep_time)
-safe_pinup(shtdn2)
-sleep(sleep_time * 2)
 try:
     pew2 = VL6180X()
     sensor_good[1] = True
