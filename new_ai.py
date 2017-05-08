@@ -229,7 +229,7 @@ def control_loop():
 
             current_direction = direction
             m.move_stop()
-            current_state = 'NOPE'
+            
                 
 
     if current_state == 'obstacle':
