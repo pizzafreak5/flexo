@@ -16,7 +16,7 @@ max_vs_cali = max_speed - cali_speed
 cali_turn_time = 1.08
 motor_rest_time = 1
 move_forward_time = 0.01
-move_into_intersection_time = 0.6
+move_into_intersection_time = 0.8
 cross_intersection_time = 1.20
 dickered_time = 0.5
 
