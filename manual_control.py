@@ -1,11 +1,11 @@
 import motor_controller as m
 import time
-import curses
+import getch
 
 speed = 230
 
 while True:
-    user_input = curses.getch()
+    user_input = getch.getch()
 
     if user_input == "w":
         m.move_right_forward(speed)
