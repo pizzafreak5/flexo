@@ -8,7 +8,7 @@ right = pew2
 left = pew3
 
 #speeds
-cali_speed = 170
+cali_speed = 160
 max_speed = 200 
 max_vs_cali = max_speed - cali_speed
 
@@ -16,7 +16,7 @@ max_vs_cali = max_speed - cali_speed
 cali_turn_time = 0.8
 motor_rest_time = 1
 move_forward_time = 0.05
-move_into_intersection_time = 0.80
+move_into_intersection_time = 0.6
 cross_intersection_time = 1.80
 dickered_time = 0.5
 
