@@ -8,19 +8,19 @@ right = pew2
 left = pew3
 
 #speeds
-cali_speed = 230
+cali_speed = 220
 max_speed = 255 #This should not change
 max_vs_cali = max_speed - cali_speed
 
 #times
-cali_turn_time = 0.90
+cali_turn_time = 0.70
 motor_rest_time = 1
 move_forward_time = 0.1
-move_into_intersection_time = 1.00
-cross_intersection_time = 1.5
+move_into_intersection_time = 0.70
+cross_intersection_time = 1.2
 
 #constants
-ratio_damp = 0.1
+ratio_damp = 0.2
 adjust_comp = 0.4
 intersection_distance = 253
 
@@ -121,7 +121,7 @@ def control_loop():
         d_right = right.get_distance()
 
         if d_left >= intersection_distance or d_right >= intersection_distance:
-            current_state = 'junction'
+            #current_state = 'junction'
             m.move_stop()
         
         else:
