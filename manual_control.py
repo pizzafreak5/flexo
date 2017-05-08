@@ -5,7 +5,7 @@ import curses
 speed = 230
 
 while True:
-    user_input = stdscr.getch()
+    user_input = curses.getch()
 
     if user_input == "w":
         m.move_right_forward(speed)
