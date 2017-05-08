@@ -8,12 +8,12 @@ right = pew2
 left = pew3
 
 #speeds
-cali_speed = 160
-max_speed = 200 
+cali_speed = 150
+max_speed = 180
 max_vs_cali = max_speed - cali_speed
 
 #times
-cali_turn_time = 0.8
+cali_turn_time = 0.70
 motor_rest_time = 1
 move_forward_time = 0.05
 move_into_intersection_time = 0.6
@@ -21,7 +21,7 @@ cross_intersection_time = 1.80
 dickered_time = 0.5
 
 #constants
-ratio_damp = 0.15
+ratio_damp = 0.08
 adjust_comp = 0.25
 intersection_distance = 253
 minimum_distance = 10
@@ -128,12 +128,12 @@ def control_loop():
         time.sleep(0.02)
         d_front = front.get_distance()
 
-        if d_left <= minimum_distance:
+        if d_left <= minimum_distance and time.clock() > 0.5:
             current_state = 'dickered'
             dickered_flag = 'left'
             m.move_stop()
 
-        elif d_right <= minimum_distance:
+        elif d_right <= minimum_distance and time.clock() > 0.5:
             current_state = 'dickered'
             dickered_flag = 'right'
             m.move_stop()
