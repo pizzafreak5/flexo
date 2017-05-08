@@ -8,8 +8,8 @@ right = pew2
 left = pew3
 
 #speeds
-cali_speed = 220
-max_speed = 255 #This should not change
+cali_speed = 190
+max_speed = 230 #This should not change
 max_vs_cali = max_speed - cali_speed
 
 #times
