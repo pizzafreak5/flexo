@@ -27,10 +27,12 @@ while True:
         m.move_right_backward(speed)
         m.move_left_backward(speed)
 
+    if user_input == " ":
+        m.move_stop()
+
     if user_input == "x":
         m.move_stop()
         break
 
     print (user_input)
-    time.sleep(0.01)
-    m.move_stop()
+
