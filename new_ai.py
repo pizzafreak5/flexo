@@ -16,8 +16,8 @@ max_vs_cali = max_speed - cali_speed
 cali_turn_time = 0.90
 motor_rest_time = 1
 move_forward_time = 0.1
-move_into_intersection_time = 1.25
-cross_intersection_time = 2.5
+move_into_intersection_time = 1.00
+cross_intersection_time = 1.5
 
 #constants
 ratio_damp = 0.1
@@ -117,7 +117,7 @@ def control_loop():
     if current_state == 'traveling':
 
         d_left = left.get_distance()
-        time.sleep(0.05)
+        time.sleep(0.02)
         d_right = right.get_distance()
 
         if d_left >= intersection_distance or d_right >= intersection_distance:
