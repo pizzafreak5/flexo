@@ -3,7 +3,7 @@ import time
 import getch
 
 speed = 230
-
+turn_speed = 160
 while True:
     user_input = getch.getch()
 
@@ -12,16 +12,16 @@ while True:
         m.move_left_forward(speed)
     
     if user_input == "q":
-        m.move_left_forward(speed)
+        m.move_left_forward(turn_speed)
 
     if user_input == "e":
-        m.move_right_forward(speed)
+        m.move_right_forward(turn_speed)
 
     if user_input == "a":
-        m.move_left_backward(speed)
+        m.move_left_backward(turn_speed)
 
     if user_input == "d":
-        m.move_right_backward(speed)
+        m.move_right_backward(turn_speed)
 
     if user_input == "s":
         m.move_right_backward(speed)
