@@ -15,17 +15,17 @@ max_vs_cali = max_speed - cali_speed
 #times
 cali_turn_time = 0.75
 motor_rest_time = 1
-move_forward_time = 0.05
+move_forward_time = 0.1
 move_into_intersection_time = 0.6
 cross_intersection_time = 1.80
 dickered_time = 0.5
 
 #constants
-ratio_damp = 0.2
-adjust_comp = 0.4
+ratio_damp = 0.18
+adjust_comp = 0.2
 intersection_distance = 253
 minimum_distance = 10
-dickered_speed = 200
+dickered_speed = 180
 
 #map_stuff
 start = ms.init_map()
