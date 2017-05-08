@@ -138,7 +138,7 @@ def control_loop():
             dickered_flag = 'right'
             m.move_stop()
 
-        elif d_front <= minimum_distance:
+        elif d_front <= minimum_distance and time.clock() > 0.5:
             current_state = 'dickered'
             dickered_flag = 'front'
             m.move_stop()
