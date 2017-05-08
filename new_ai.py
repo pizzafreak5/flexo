@@ -18,7 +18,7 @@ motor_rest_time = 1
 move_forward_time = 0.05
 move_into_intersection_time = 0.70
 cross_intersection_time = 1.2
-dickered_time = 0.8
+dickered_time = 0.5
 
 #constants
 ratio_damp = 0.2
@@ -37,6 +37,9 @@ goal = 'B14'
 #states
 states = ['traveling', 'start', 'end', 'junction', 'obstacle', 'backup', 'NOPE', 'dickered']
 current_state = 'start'
+
+#misc
+dickered_flag = 'none'
 
 def turn_90(left):
 
@@ -123,8 +126,14 @@ def control_loop():
         time.sleep(0.02)
         d_right = right.get_distance()
 
-        if d_left <= minimum_distance or d_right <= minimum_distance:
+        if d_left <= minimum_distance:
             current_state = 'dickered'
+            dickered_flag = 'left'
+            m.move_stop()
+
+        if d_right <= minimum_distance:
+            current_state = 'dickered'
+            dickered_flag = 'right'
             m.move_stop()
 
         if d_left >= intersection_distance or d_right >= intersection_distance:
@@ -136,12 +145,20 @@ def control_loop():
 
     if current_state == 'dickered':
         m.move_stop()
+        
         time.sleep(motor_rest_time)
 
-        m.move_right_backward(dickered_speed)
-        m.move_left_backward(dickered_speed)
+        if dickered_flag == 'left':
+            m.move_right_backward(dickered_speed + 20)
+            m.move_left_backward(dickered_speed)
+
+        if dickered_flag == 'right':
+            m.move_right_backward(dickered_speed)
+            m.move_left_backward(dickered_speed + 20)
 
         time.sleep(dickered_time)
+
+        current_state = 'traveling'
         
 
     if current_state == 'junction':
