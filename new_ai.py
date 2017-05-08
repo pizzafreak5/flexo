@@ -194,7 +194,7 @@ def control_loop():
             if dir_to_turn == 'left':
                 #move into intersection
                 print('TURNING LEFT')
-                forward(100,100, move_into_intersection_time)
+                forward(100,80, move_into_intersection_time)
                 turn_90(True)
                 #move into new straight
                 forward(100,100, move_into_intersection_time)
