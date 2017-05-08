@@ -19,7 +19,7 @@ def turn_90(stime, speed):
 	time.sleep(1)
 
 time.sleep(10)
-move_forward(230)
-turn_90(0.90,230)
+move_forward(160)
+turn_90(1.25,160)
 
 
