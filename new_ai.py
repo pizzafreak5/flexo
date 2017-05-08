@@ -131,12 +131,12 @@ def control_loop():
             dickered_flag = 'left'
             m.move_stop()
 
-        if d_right <= minimum_distance:
+        elif d_right <= minimum_distance:
             current_state = 'dickered'
             dickered_flag = 'right'
             m.move_stop()
 
-        if d_left >= intersection_distance or d_right >= intersection_distance:
+        elif d_left >= intersection_distance or d_right >= intersection_distance:
             current_state = 'junction'
             m.move_stop()
         
