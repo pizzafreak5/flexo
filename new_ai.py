@@ -13,7 +13,7 @@ max_speed = 180
 max_vs_cali = max_speed - cali_speed
 
 #times
-cali_turn_time = 1.25
+cali_turn_time = 1.15
 motor_rest_time = 1
 move_forward_time = 0.01
 move_into_intersection_time = 0.6
