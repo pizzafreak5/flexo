@@ -193,17 +193,11 @@ def control_loop():
             
             if dir_to_turn == 'left':
                 #move into intersection
-                '''
                 print('TURNING LEFT')
                 forward(100,100, move_into_intersection_time)
                 turn_90(True)
                 #move into new straight
                 forward(100,100, move_into_intersection_time)
-                '''
-                m.move_left_forward(160)
-                m.move_right_forward(200)
-                time.sleep(1)
-                forward(100,100,0.6)
                 current_state = 'traveling'
                         
 
