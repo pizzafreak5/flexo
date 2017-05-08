@@ -24,7 +24,7 @@ dickered_time = 0.5
 ratio_damp = 0.15
 adjust_comp = 0.25
 intersection_distance = 253
-minimum_distance = 5
+minimum_distance = 10
 dickered_speed = 160
 
 #map_stuff
@@ -125,6 +125,8 @@ def control_loop():
         d_left = left.get_distance()
         time.sleep(0.02)
         d_right = right.get_distance()
+        time.sleep(0.02)
+        d_front = front.get_distance()
 
         if d_left <= minimum_distance:
             current_state = 'dickered'
@@ -134,6 +136,11 @@ def control_loop():
         elif d_right <= minimum_distance:
             current_state = 'dickered'
             dickered_flag = 'right'
+            m.move_stop()
+
+        elif d_front <= minimum_distance:
+            current_state = 'dickered'
+            dickered_flag = 'front'
             m.move_stop()
 
         elif d_left >= intersection_distance or d_right >= intersection_distance:
@@ -155,6 +162,10 @@ def control_loop():
         if dickered_flag == 'right':
             m.move_right_backward(dickered_speed)
             m.move_left_backward(dickered_speed + 20)
+
+        if dickered_flag == 'front':
+            m.move_right_backward(dickered_speed)
+            m.move_left_backward(dickered_speed)            
 
         time.sleep(dickered_time)
 
