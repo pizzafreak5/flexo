@@ -218,7 +218,6 @@ def find_direction(current, goal):
             return "west"
 
 def turn_direction(current_direction, goal_direction):
-
     return turn_mapping[current_direction][goal_direction]
 
 def update_location(junction, direction):
@@ -286,6 +285,41 @@ def navigate_single(start, goal):
     start = update_location(start, direction)
 
     return go_to, direction, False
+
+def walls(cardinal_direction, location):
+    #Front, left, right, back, true if wall
+    front = None
+    left = None
+    right = None
+    back = None
+
+    turn_pos = []
+
+    if location.north != None:
+        turn_pos.append(turn_direction(cardinal_direction, "north"))
+        
+    if location.south != None:
+        turn_pos.append(turn_direction(cardinal_direction, "south"))
+
+    if location.west != None:
+        turn_pos.append(turn_direction(cardinal_direction, "west"))
+
+    if location.east != None:
+        turn_pos.append(turn_direction(cardinal_direction, "east"))
+
+    if "right" in turn_pos:
+        right = True
+
+    if "left" in turn_pos:
+        left = True
+
+    if "forward" in turn_pos:
+        front = True
+
+    if "backward" in turn_pos:
+        back = True
+
+    return front, left, right, back
     
 
 #EXAMPLE USAGE   
