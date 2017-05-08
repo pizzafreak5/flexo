@@ -21,8 +21,8 @@ cross_intersection_time = 1.80
 dickered_time = 0.5
 
 #constants
-ratio_damp = 0.2
-adjust_comp = 0.2
+ratio_damp = 0.15
+adjust_comp = 0.25
 intersection_distance = 253
 minimum_distance = 5
 dickered_speed = 160
