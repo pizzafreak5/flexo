@@ -121,7 +121,7 @@ def control_loop():
         d_right = right.get_distance()
 
         if d_left >= intersection_distance or d_right >= intersection_distance:
-            #current_state = 'junction'
+            current_state = 'junction'
             m.move_stop()
         
         else:
