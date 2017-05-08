@@ -188,7 +188,9 @@ def control_loop():
 
         else:
             dir_to_turn = ms.turn_direction(current_direction, direction)
-
+            front_w, left_w, right_w, back_w = ms.walls(current_direction, current_node)
+            print('WALLS: F-{} L-{} R-{} B-{}'.format(front_w, left_w, right_w, back_w))
+            '''
             if dir_to_turn == 'left':
                 #move into intersection
                 print('TURNING LEFT')
@@ -216,7 +218,11 @@ def control_loop():
                 forward(100,100,cross_intersection_time)
                 current_state = 'traveling'
 
+            '''
+
             current_direction = direction
+            m.move_stop()
+            current_state = 'NOPE'
                 
 
     if current_state == 'obstacle':
