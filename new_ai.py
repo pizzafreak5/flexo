@@ -25,7 +25,7 @@ ratio_damp = 0.14
 adjust_comp = 0.25
 intersection_distance = 253
 minimum_distance = 10
-dickered_speed = 160
+dickered_speed = 200
 
 #map_stuff
 start = ms.init_map()
